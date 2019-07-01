@@ -1,4 +1,387 @@
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
 body {
   margin: 0;
   padding: 0;
+}
+
+ul, li {
+  margin: 0;
+  padding: 0;
+}
+
+img {
+  max-width: 100%;
+}
+
+@font-face {
+  font-family: "Merriweather";
+  src: url("../fonts/Merriweather/Merriweather-Bold.eot");
+  src: url("../fonts/Merriweather/Merriweather-Bold.woff");
+  src: url("../fonts/Merriweather/Merriweather-Bold.ttf");
+  font-weight: bold;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Merriweather";
+  src: url("../fonts/Merriweather/Merriweather-Italic.eot");
+  src: url("../fonts/Merriweather/Merriweather-Italic.woff");
+  src: url("../fonts/Merriweather/Merriweather-Italic.ttf");
+  font-weight: normal;
+  font-style: italic;
+}
+@font-face {
+  font-family: "Merriweather";
+  src: url("../fonts/Merriweather/Merriweather-Regular.eot");
+  src: url("../fonts/Merriweather/Merriweather-Regular.woff");
+  src: url("../fonts/Merriweather/Merriweather-Regular.ttf");
+  font-weight: normal;
+}
+@font-face {
+  font-family: "Montserrat";
+  src: url("../fonts/Montserrat/Montserrat-Regular.eot");
+  src: url("../fonts/Montserrat/Montserrat-Regular.woff");
+  src: url("../fonts/Montserrat/Montserrat-Regular.ttf");
+  font-weight: normal;
+}
+@font-face {
+  font-family: "Montserrat";
+  src: url("../fonts/Montserrat/Montserrat-Bold.eot");
+  src: url("../fonts/Montserrat/Montserrat-Bold.woff");
+  src: url("../fonts/Montserrat/Montserrat-Bold.ttf");
+  font-weight: bold;
+}
+@font-face {
+  font-family: "Raleway-Ragular";
+  src: url("../fonts/Raleway/Raleway-Regular.eot");
+  src: url("../fonts/Raleway/Raleway-Regular.woff");
+  src: url("../fonts/Raleway/Releway-Regular.ttf");
+}
+@font-face {
+  font-family: "Releway-Medium";
+  src: url("../fonts/Raleway/Raleway-Medium.eot");
+  src: url("../fonts/Raleway/Raleway-Medium.woff");
+  src: url("../fonts/Raleway/Raleway-Medium.ttf");
+}
+body {
+  font-family: Releway-Regular, sans-serif;
+  font-size: 16px;
+  color: #646565;
+  min-width: 380px;
+}
+
+.wrapper-button {
+  border: 2px solid #646565;
+  color: #646565;
+  display: inline-block;
+  font-family: Montserrat, sans-serif;
+  font-weight: normal;
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 10px 25px;
+}
+
+#header {
+  background-color: #eff0f2;
+  padding: 64px 0;
+}
+#header h1 {
+  color: #505050;
+  font-family: Montserrat, sans-serif;
+  font-weight: bold;
+  font-size: 36px;
+  margin-top: 100px;
+  text-transform: uppercase;
+  text-align: center;
+}
+#header h1 span {
+  background-color: #71f5ea;
+  padding: 0 10px;
+}
+#header .logo {
+  color: #000;
+  border: 6px solid #000;
+  display: inline-block;
+  font-family: Montserrat, sans-serif;
+  font-weight: bold;
+  font-size: 17px;
+  padding: 8px 18px;
+  text-transform: uppercase;
+  text-shadow: 1px 1px 1px #505050;
+}
+#header .logo span {
+  color: #71f5ea;
+  font-size: 22px;
+}
+#header .menu {
+  text-align: right;
+  display: none;
+  position: absolute;
+  right: 0;
+  z-index: 10;
+}
+#header .menu ul {
+  list-style: none;
+}
+#header .menu ul li {
+  position: relative;
+}
+#header .menu ul li a {
+  color: #505050;
+  display: inline-block;
+  padding: 0 10px 10px 10px;
+  text-decoration: none;
+  -webkit-transition: all 0.2s;
+  transition: all 0.2s;
+}
+#header .menu ul li a:hover {
+  color: #0fd7c7;
+  text-decoration: underline;
+}
+#header .wrapper {
+  text-align: center;
+  padding-top: 100px;
+}
+#header .water {
+  padding-top: 110px;
+  padding-left: 70px;
+}
+
+.toggle-mnu {
+  display: block;
+  width: 28px;
+  height: 28px;
+}
+.toggle-mnu span:after, .toggle-mnu span:before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 9px;
+}
+.toggle-mnu span:after {
+  top: 18px;
+}
+.toggle-mnu span {
+  position: relative;
+  display: block;
+}
+.toggle-mnu span, .toggle-mnu span:after, .toggle-mnu span:before {
+  width: 100%;
+  height: 2px;
+  background-color: #666;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+  border-radius: 2px;
+}
+.toggle-mnu.on span {
+  background-color: transparent;
+}
+.toggle-mnu.on span:before {
+  -webkit-transform: rotate(45deg) translate(-1px, 0px);
+          transform: rotate(45deg) translate(-1px, 0px);
+}
+.toggle-mnu.on span:after {
+  -webkit-transform: rotate(-45deg) translate(6px, -7px);
+          transform: rotate(-45deg) translate(6px, -7px);
+}
+
+.title-section {
+  color: #505050;
+  font-family: Montserrat, sans-serif;
+  font-size: 38px;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.title-description {
+  font-family: Merriweather, sans-serif;
+  font-weight: normal;
+  font-size: 18px;
+  text-transform: uppercase;
+  text-align: center;
+  padding-bottom: 70px;
+}
+
+#about {
+  padding: 64px 0;
+  background-color: #f8fafa;
+}
+#about .slider {
+  display: block;
+}
+#about .slider .slide {
+  display: block;
+  text-align: center;
+  position: relative;
+}
+#about .slider .slide::after {
+  content: "";
+  position: absolute;
+  top: 30px;
+  bottom: 30px;
+  left: 30px;
+  right: 30px;
+  background-color: #000;
+  opacity: 0.1;
+  z-index: 0;
+}
+#about .slider .slide img {
+  display: inline-block;
+  position: relative;
+  z-index: 2;
+  max-width: 100%;
+}
+#about .text-about-title {
+  color: #6a6a6a;
+  font-size: 20px;
+  font-family: Merriweather, sans-serif;
+  font-weight: bold;
+  margin-top: 0;
+  text-align: left;
+  text-transform: uppercase;
+}
+#about .text-about p {
+  color: #646565;
+  font-family: Releway-Regular, sans-serif;
+  font-size: 14px;
+  line-height: 24px;
+  text-align: left;
+}
+
+#works {
+  padding: 64px 0;
+}
+#works .wrapper-works {
+  padding: 5px;
+  text-align: center;
+}
+
+#service {
+  padding: 64px 0;
+  background-color: #f8fafa;
+}
+#service .wrapper-service {
+  padding: 10px;
+}
+#service .wrapper-service .service-slide {
+  padding: 60px;
+  position: relative;
+}
+#service .wrapper-service .service-slide-1 {
+  background: url("../img/img-12.jpg") no-repeat center center;
+}
+#service .wrapper-service .service-slide-2 {
+  background: url("../img/img-8.jpg") no-repeat center center;
+}
+#service .wrapper-service .service-slide-3 {
+  background: url("../img/img-9.jpg") no-repeat center center;
+}
+#service .wrapper-service .service-slide-4 {
+  background: url("../img/img-10.jpg") no-repeat center center;
+}
+#service .wrapper-service .service-slide-5 {
+  background: url("../img/img-11.jpg") no-repeat center center;
+}
+#service .wrapper-service .service-slide-6 {
+  background: url("../img/img-12.jpg") no-repeat center center;
+}
+#service .wrapper-service .service-slide::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #000;
+  opacity: 0.7;
+}
+#service .wrapper-service .service-slide-bg {
+  position: relative;
+  z-index: 10;
+}
+#service .wrapper-service .service-slide-bg h3 {
+  font-family: Merriweather, sans-serif;
+  font-size: 20px;
+  color: #d9d9d9;
+  text-transform: uppercase;
+}
+#service .wrapper-service .service-slide-bg p {
+  font-family: Releway-Regular, sans-serif;
+  font-size: 14px;
+  line-height: 22px;
+  color: #b3b3b3;
+}
+#service .wrapper-service .service-slide-bg .more {
+  font-family: Releway-Medium, sans-serif;
+  text-transform: uppercase;
+  text-decoration: none;
+  display: inline-block;
+  color: #b3b3b3;
+  letter-spacing: 3px;
+  cursor: pointer;
+}
+#service .wrapper-service .service-slide-bg .more span {
+  font-size: 20px;
+}
+#service .wrapper-service .service-slide-popup {
+  display: none;
+  background-color: #71f5ea;
+  padding: 60px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 10;
+}
+#service .wrapper-service .service-slide-popup h3 {
+  font-family: Merriweather, sans-serif;
+  font-size: 20px;
+  color: #505050;
+  text-transform: uppercase;
+}
+#service .wrapper-service .service-slide-popup p {
+  font-family: Releway-Regular, sans-serif;
+  font-size: 14px;
+  line-height: 22px;
+  color: #646565;
+}
+#service .wrapper-service .service-slide-popup .more {
+  font-family: Releway-Medium, sans-serif;
+  text-transform: uppercase;
+  text-decoration: none;
+  display: inline-block;
+  color: #505050;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+@media only screen and (max-width: 767px) {
+  #header h1 {
+    font-size: 26px;
+  }
+  #header .water {
+    padding-top: 40px;
+    padding-left: 10px;
+  }
+
+  #about .title-description {
+    padding-bottom: 40px;
+  }
+  #about .text-about-title {
+    margin-top: 20px;
+  }
+
+  #works .title-description {
+    padding-bottom: 40px;
+  }
+
+  #service .title-description {
+    padding-bottom: 40px;
+  }
 }
