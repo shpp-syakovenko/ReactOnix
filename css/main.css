@@ -1,6 +1,9 @@
+@charset "UTF-8";
 * {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
+  border: none;
+  outline: none;
 }
 
 body {
@@ -66,6 +69,76 @@ img {
   src: url("../fonts/Raleway/Raleway-Medium.woff");
   src: url("../fonts/Raleway/Raleway-Medium.ttf");
 }
+@font-face {
+  font-family: 'fontello';
+  src: url("../fonts/fontello.eot?92357188");
+  src: url("../fonts/fontello.eot?92357188#iefix") format("embedded-opentype"), url("../fonts/fontello.woff2?92357188") format("woff2"), url("../fonts/fontello.woff?92357188") format("woff"), url("../fonts/fontello.ttf?92357188") format("truetype"), url("../fonts/fontello.svg?92357188#fontello") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+/* Chrome hack: SVG is rendered more smooth in Windozze. 100% magic, uncomment if you need it. */
+/* Note, that will break hinting! In other OS-es font will be not as sharp as it could be */
+/*
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+  @font-face {
+    font-family: 'fontello';
+    src: url('../font/fontello.svg?92357188#fontello') format('svg');
+  }
+}
+*/
+[class^="icon-"]:before, [class*=" icon-"]:before {
+  font-family: "fontello";
+  font-style: normal;
+  font-weight: normal;
+  speak: none;
+  display: inline-block;
+  text-decoration: inherit;
+  width: 1em;
+  margin-right: .2em;
+  text-align: center;
+  /* opacity: .8; */
+  /* For safety - reset parent styles, that can break glyph codes*/
+  font-variant: normal;
+  text-transform: none;
+  /* fix buttons height, for twitter bootstrap */
+  line-height: 1em;
+  /* Animation center compensation - margins should be symmetric */
+  /* remove if not needed */
+  margin-left: .2em;
+  /* you can be more comfortable with increased icons size */
+  /* font-size: 120%; */
+  /* Font smoothing. That was taken from TWBS */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  /* Uncomment for 3D effect */
+  /* text-shadow: 1px 1px 1px rgba(127, 127, 127, 0.3); */
+}
+
+.icon-mail:before {
+  content: '\e801';
+}
+
+/* '' */
+.icon-twitter:before {
+  content: '\f099';
+}
+
+/* '' */
+.icon-dribbble-1:before {
+  content: '\f17d';
+}
+
+/* '' */
+.icon-pinterest:before {
+  content: '\f231';
+}
+
+/* '' */
+.icon-facebook-1:before {
+  content: '\f30c';
+}
+
+/* '' */
 body {
   font-family: Releway-Regular, sans-serif;
   font-size: 16px;
@@ -361,6 +434,300 @@ body {
   cursor: pointer;
 }
 
+#team {
+  padding: 64px 0;
+}
+#team .team-photo {
+  padding: 5px;
+}
+#team .team-photo .wrapper-team {
+  display: block;
+  text-align: center;
+  position: relative;
+  cursor: pointer;
+}
+#team .team-photo .wrapper-team-description {
+  display: none;
+  position: absolute;
+  z-index: 10;
+  left: 10px;
+  right: 10px;
+  bottom: 10px;
+  background-color: #71f5ea;
+  padding: 40px;
+  text-align: left;
+}
+#team .team-photo .wrapper-team-description::before {
+  content: "";
+  position: absolute;
+  top: -60px;
+  left: 30px;
+  border: 20px solid transparent;
+  border-bottom: 40px solid #71f5ea;
+}
+#team .team-photo .wrapper-team-description h3 {
+  font-family: Merriweather, sans-serif;
+  font-weight: bold;
+  color: #505050;
+}
+#team .team-photo .wrapper-team-description h3 span {
+  font-weight: normal;
+  font-style: italic;
+}
+#team .team-photo .wrapper-team-description p {
+  font-family: Releway-Regular, sans-serif;
+  color: #646565;
+  line-height: 22px;
+  font-size: 14px;
+}
+#team .team-photo .wrapper-team-description .social {
+  margin: 0;
+  padding: 0;
+  -webkit-transform: translateX(-8px);
+          transform: translateX(-8px);
+}
+#team .team-photo .wrapper-team-description .social li {
+  display: inline-block;
+}
+#team .team-photo .wrapper-team-description .social li a {
+  color: #646565;
+  text-decoration: none;
+  -webkit-transition: all 0.2s;
+  transition: all 0.2s;
+}
+#team .team-photo .wrapper-team-description .social li a:hover {
+  color: #313232;
+}
+
+#theysay {
+  padding: 64px 0;
+  background-color: #f8fafa;
+}
+#theysay .slider-say {
+  position: relative;
+}
+#theysay .slider-say .slick-list {
+  padding-bottom: 30px;
+}
+#theysay .slider-say .slide-say {
+  margin-top: 50px;
+}
+#theysay .slider-say .slide-say-img {
+  height: 360px;
+  position: relative;
+  text-align: center;
+}
+#theysay .slider-say .slide-say-img::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #eaebed;
+  z-index: 2;
+}
+#theysay .slider-say .slide-say-img img {
+  -webkit-transform: translateY(-40px);
+          transform: translateY(-40px);
+  position: relative;
+  display: inline-block;
+  z-index: 100;
+}
+#theysay .slider-say .slide-say-desc {
+  background-color: #eaebed;
+  padding: 90px 70px;
+  text-align: center;
+  height: 360px;
+}
+#theysay .slider-say .slide-say-desc h3 {
+  font-family: Merriweather;
+  font-weight: bold;
+  font-size: 20px;
+  text-transform: uppercase;
+}
+#theysay .slider-say .slide-say-desc h3 span {
+  font-weight: normal;
+  font-style: italic;
+  font-size: 16px;
+}
+#theysay .slider-say .slide-say-desc p {
+  color: #646565;
+  line-height: 24px;
+}
+#theysay .slider-say .slide-say-desc ul {
+  margin: 0;
+  padding: 0;
+}
+#theysay .slider-say .slide-say-desc ul li {
+  display: inline-block;
+}
+
+.wrapper-arrows {
+  display: block;
+  text-align: right;
+}
+.wrapper-arrows .arrows {
+  display: inline-block;
+  font-size: 40px;
+  cursor: pointer;
+  margin-left: 30px;
+  background-color: #eaebed;
+  width: 50px;
+  height: 50px;
+  text-align: center;
+  line-height: 50px;
+  -webkit-transition: all 0.2s;
+  transition: all 0.2s;
+}
+.wrapper-arrows .arrows:hover {
+  background-color: #71f5ea;
+}
+
+#logo-section {
+  padding: 100px 0;
+}
+
+#contact {
+  background: url("../img/bg_contact.png") no-repeat center bottom;
+  padding: 80px 0;
+  position: relative;
+  z-index: 1;
+}
+#contact:after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #fff;
+  opacity: 0.6;
+  z-index: 5;
+}
+#contact .wrapper-map {
+  background-color: #021623;
+  padding: 20px;
+  position: relative;
+  z-index: 10;
+  color: #a4a5a5;
+  opacity: 0.8;
+}
+#contact .wrapper-map p {
+  margin: 8px 0;
+}
+#contact .wrapper-map .fax {
+  margin-bottom: 44px;
+}
+#contact .wrapper-map img {
+  margin-top: 20px;
+  width: 100%;
+}
+#contact .wrapper-form {
+  background-color: #021623;
+  padding: 20px;
+  position: relative;
+  z-index: 10;
+  color: #a4a5a5;
+  opacity: 0.8;
+  margin-bottom: 30px;
+}
+#contact .wrapper-form .submit input {
+  background-color: #71f5ea;
+  color: #505050;
+  padding: 20px 40px;
+  font-family: Montserrat, sans-serif;
+  font-style: bold;
+  text-transform: uppercase;
+  font-size: 18px;
+  letter-spacing: 2px;
+  border-radius: 2px;
+  margin-top: 20px;
+  cursor: pointer;
+  width: 250px;
+}
+#contact .wrapper-form form div {
+  margin: 10px 0;
+  border-bottom: 1px solid #03253b;
+}
+#contact .wrapper-form form div:last-child {
+  border-bottom: none;
+}
+#contact .wrapper-form form div input, #contact .wrapper-form form div textarea {
+  padding: 15px 0;
+  background-color: transparent;
+  font-size: 20px;
+  color: #a4a5a5;
+  width: 100%;
+}
+#contact .wrapper-form form div textarea {
+  height: 115px;
+}
+
+#footer {
+  background-color: #262b2e;
+  padding: 90px 0;
+}
+#footer .follow {
+  color: #979898;
+  display: block;
+  font-family: Releway-Regular, sans-serif;
+  font-weight: normal;
+  text-align: center;
+  font-size: 18px;
+  text-transform: uppercase;
+}
+#footer .footer-social {
+  display: block;
+  text-align: center;
+}
+#footer .footer-social ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+#footer .footer-social ul li {
+  display: inline-block;
+  margin: 0 5px;
+}
+#footer .footer-social ul li a {
+  color: #979898;
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  background-color: #545f66;
+  font-size: 20px;
+  line-height: 40px;
+  color: #a1acb2;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+}
+#footer .footer-social ul li a:hover {
+  background-color: #71f5ea;
+  color: #505050;
+}
+#footer .copyright {
+  color: #979898;
+  display: block;
+  font-family: Releway-Medium, sans-serif;
+  font-weight: normal;
+  text-align: center;
+}
+#footer .autor, #footer .psd, #footer .github {
+  display: block;
+  color: #fff;
+  font-size: 16px;
+}
+#footer .autor a, #footer .psd a, #footer .github a {
+  color: #cccccc;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+  text-decoration: none;
+}
+#footer .autor a:hover, #footer .psd a:hover, #footer .github a:hover {
+  color: #71f5ea;
+}
+
 @media only screen and (max-width: 767px) {
   #header h1 {
     font-size: 26px;
@@ -368,6 +735,10 @@ body {
   #header .water {
     padding-top: 40px;
     padding-left: 10px;
+  }
+  #header .toggle-mnu {
+    -webkit-transform: translateX(-15px);
+            transform: translateX(-15px);
   }
 
   #about .title-description {
@@ -383,5 +754,23 @@ body {
 
   #service .title-description {
     padding-bottom: 40px;
+  }
+
+  #theysay .slider-say .slide-say-desc {
+    padding: 30px 70px;
+  }
+
+  #team .team-photo .wrapper-team-description {
+    padding: 20px;
+  }
+  #team .team-photo .wrapper-team-description h3 {
+    font-size: 16px;
+  }
+  #team .team-photo .wrapper-team-description p {
+    font-size: 12px;
+  }
+
+  #contact {
+    padding-top: 40px;
   }
 }
