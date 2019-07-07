@@ -22,57 +22,57 @@ img {
 
 @font-face {
   font-family: "Merriweather";
-  src: url("fonts/Merriweather/Merriweather-Bold.eot");
-  src: url("fonts/Merriweather/Merriweather-Bold.woff");
-  src: url("fonts/Merriweather/Merriweather-Bold.ttf");
+  src: url("../fonts/Merriweather/Merriweather-Bold.eot");
+  src: url("../fonts/Merriweather/Merriweather-Bold.woff");
+  src: url("../fonts/Merriweather/Merriweather-Bold.ttf");
   font-weight: bold;
   font-style: normal;
 }
 @font-face {
   font-family: "Merriweather";
-  src: url("fonts/Merriweather/Merriweather-Italic.eot");
-  src: url("fonts/Merriweather/Merriweather-Italic.woff");
-  src: url("fonts/Merriweather/Merriweather-Italic.ttf");
+  src: url("../fonts/Merriweather/Merriweather-Italic.eot");
+  src: url("../fonts/Merriweather/Merriweather-Italic.woff");
+  src: url("../fonts/Merriweather/Merriweather-Italic.ttf");
   font-weight: normal;
   font-style: italic;
 }
 @font-face {
   font-family: "Merriweather";
-  src: url("fonts/Merriweather/Merriweather-Regular.eot");
-  src: url("fonts/Merriweather/Merriweather-Regular.woff");
-  src: url("fonts/Merriweather/Merriweather-Regular.ttf");
+  src: url("../fonts/Merriweather/Merriweather-Regular.eot");
+  src: url("../fonts/Merriweather/Merriweather-Regular.woff");
+  src: url("../fonts/Merriweather/Merriweather-Regular.ttf");
   font-weight: normal;
 }
 @font-face {
   font-family: "Montserrat";
-  src: url("fonts/Montserrat/Montserrat-Regular.eot");
-  src: url("fonts/Montserrat/Montserrat-Regular.woff");
-  src: url("fonts/Montserrat/Montserrat-Regular.ttf");
+  src: url("../fonts/Montserrat/Montserrat-Regular.eot");
+  src: url("../fonts/Montserrat/Montserrat-Regular.woff");
+  src: url("../fonts/Montserrat/Montserrat-Regular.ttf");
   font-weight: normal;
 }
 @font-face {
   font-family: "Montserrat";
-  src: url("fonts/Montserrat/Montserrat-Bold.eot");
-  src: url("fonts/Montserrat/Montserrat-Bold.woff");
-  src: url("fonts/Montserrat/Montserrat-Bold.ttf");
+  src: url("../fonts/Montserrat/Montserrat-Bold.eot");
+  src: url("../fonts/Montserrat/Montserrat-Bold.woff");
+  src: url("../fonts/Montserrat/Montserrat-Bold.ttf");
   font-weight: bold;
 }
 @font-face {
   font-family: "Raleway-Ragular";
-  src: url("fonts/Raleway/Raleway-Regular.eot");
-  src: url("fonts/Raleway/Raleway-Regular.woff");
-  src: url("fonts/Raleway/Releway-Regular.ttf");
+  src: url("../fonts/Raleway/Raleway-Regular.eot");
+  src: url("../fonts/Raleway/Raleway-Regular.woff");
+  src: url("../fonts/Raleway/Releway-Regular.ttf");
 }
 @font-face {
   font-family: "Releway-Medium";
-  src: url("fonts/Raleway/Raleway-Medium.eot");
-  src: url("fonts/Raleway/Raleway-Medium.woff");
-  src: url("fonts/Raleway/Raleway-Medium.ttf");
+  src: url("../fonts/Raleway/Raleway-Medium.eot");
+  src: url("../fonts/Raleway/Raleway-Medium.woff");
+  src: url("../fonts/Raleway/Raleway-Medium.ttf");
 }
 @font-face {
   font-family: 'fontello';
-  src: url("fonts/fontello.eot?92357188");
-  src: url("fonts/fontello.eot?92357188#iefix") format("embedded-opentype"), url("fonts/fontello.woff2?92357188") format("woff2"), url("fonts/fontello.woff?92357188") format("woff"), url("fonts/fontello.ttf?92357188") format("truetype"), url("fonts/fontello.svg?92357188#fontello") format("svg");
+  src: url("../fonts/fontello.eot?92357188");
+  src: url("../fonts/fontello.eot?92357188#iefix") format("embedded-opentype"), url("../fonts/fontello.woff2?92357188") format("woff2"), url("../fonts/fontello.woff?92357188") format("woff"), url("../fonts/fontello.ttf?92357188") format("truetype"), url("../fonts/fontello.svg?92357188#fontello") format("svg");
   font-weight: normal;
   font-style: normal;
 }
@@ -278,6 +278,21 @@ body {
   text-transform: uppercase;
   text-align: center;
   padding-bottom: 70px;
+}
+
+#information {
+  padding: 64px 0;
+}
+#information .myInformation {
+  background-color: #262b2e;
+  list-style: none;
+  margin: 0;
+  padding: 20px;
+}
+#information .myInformation li {
+  padding: 10px;
+  font-size: 18px;
+  color: #b3b3b3;
 }
 
 #about {
@@ -774,3 +789,5 @@ body {
     padding-top: 40px;
   }
 }
+
+/*# sourceMappingURL=main.css.map */
