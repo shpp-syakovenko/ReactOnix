@@ -1,8 +1,8 @@
 # ReactOnix
 Цель: определить уровень умения верстки
 
-# Npm install
+### Npm install
 Установить с пакета все модули
 
-# Npm start
+### Npm start
 Запустить сервер
