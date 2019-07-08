@@ -1,9 +1,9 @@
 import React,{Component} from 'react'
-import team_1 from '../images/team-1.jpg'
-import team_2 from '../images/team-2.jpg'
-import team_3 from '../images/team-3.jpg'
-import team_4 from '../images/team-4.jpg'
-import team_5 from '../images/team-5.jpg'
+import team_1 from '../../images/team-1.jpg'
+import team_2 from '../../images/team-2.jpg'
+import team_3 from '../../images/team-3.jpg'
+import team_4 from '../../images/team-4.jpg'
+import team_5 from '../../images/team-5.jpg'
 
 
 class Team  extends Component{

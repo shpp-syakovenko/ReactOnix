@@ -1,5 +1,5 @@
 import React,{Component} from 'react'
-import water from '../images/water.png'
+import water from '../../images/water.png'
 
 
 class Header extends Component{

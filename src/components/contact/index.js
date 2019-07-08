@@ -1,5 +1,5 @@
 import React,{Component} from 'react'
-import map from '../images/map.jpg'
+import map from '../../images/map.jpg'
 
 
 class Contact extends Component{
