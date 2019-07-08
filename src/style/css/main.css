@@ -191,7 +191,7 @@ body {
 }
 #header .menu {
   text-align: right;
-  display: none;
+  display: block;
   position: absolute;
   right: 0;
   z-index: 10;

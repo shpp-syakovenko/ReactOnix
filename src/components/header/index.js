@@ -10,6 +10,20 @@ class Header extends Component{
 
     render() {
 
+        const menuToggle = this.state.openMenu ? <a href="#mobile-menu" className="toggle-mnu on" onClick={this.handleMenu}><span></span></a>
+                                               : <a href="#mobile-menu" className="toggle-mnu" onClick={this.handleMenu}><span></span></a>
+        const menu = this.state.openMenu &&
+            <div className="menu">
+                <ul>
+                     <li><a href="#about">About Us</a></li>
+                     <li><a href="#information">My Information</a></li>
+                     <li><a href="#works">Featured Works</a></li>
+                     <li><a href="#service">Our service</a></li>
+                     <li><a href="#team">Small team</a></li>
+                     <li><a href="#contact">Contact</a></li>
+                </ul>
+             </div>
+
         return(
             <header id="header">
                 <div className="container">
@@ -17,21 +31,17 @@ class Header extends Component{
                         <div className="col-2">
                             <div className="logo">Sh<span>o</span>pno</div>
                         </div>
+
+
                         <div className="col-9">
-                            <div className="menu">
-                                <ul>
-                                    <li><a href="#about">About Us</a></li>
-                                    <li><a href="#information">My Information</a></li>
-                                    <li><a href="#works">Featured Works</a></li>
-                                    <li><a href="#service">Our service</a></li>
-                                    <li><a href="#team">Small team</a></li>
-                                    <li><a href="#contact">Contact</a></li>
-                                </ul>
-                            </div>
+                            {menu}
                         </div>
                         <div className="col-1">
-                            <a href="#mobile-menu" className="toggle-mnu" onClick={this.handleMenu}><span></span></a>
+                            {menuToggle}
                         </div>
+
+
+
                     </div>
                     <div className="row">
                         <div className="col-md-1"></div>
@@ -56,8 +66,11 @@ class Header extends Component{
         )
     }
 
-    handleMenu = () => {
-        //console.log('1');
+    handleMenu = () =>{
+        console.log('---','1');
+        this.setState({
+            openMenu: !this.state.openMenu
+        })
     }
 }
 

@@ -14,10 +14,10 @@ export default function Footer () {
                     <div className="col-12">
                         <div className="footer-social">
                             <ul>
-                                <li><a href="#"><i className="icon-pinterest"></i></a></li>
-                                <li><a href="#"><i className="icon-twitter"></i></a></li>
-                                <li><a href="#"><i className="icon-facebook-1"></i></a></li>
-                                <li><a href="#"><i className="icon-dribbble-1"></i></a></li>
+                                <li><a href="#footer"><i className="icon-pinterest"></i></a></li>
+                                <li><a href="#footer"><i className="icon-twitter"></i></a></li>
+                                <li><a href="#footer"><i className="icon-facebook-1"></i></a></li>
+                                <li><a href="#footer"><i className="icon-dribbble-1"></i></a></li>
                             </ul>
                         </div>
                     </div>
@@ -31,16 +31,16 @@ export default function Footer () {
                     <div className="col-md-4">
                         <div className="github">
                             <p>GitHub:</p>
-                            <p><a href="https://github.com/shpp-syakovenko/ReactOnix" target="_blank">Ссылка на
+                            <p><a href="https://github.com/shpp-syakovenko/ReactOnix">Ссылка на
                                 GitHub</a></p>
                         </div>
                     </div>
                     <div className="col-md-4">
                         <div className="psd">
-                            <p><a href={psd} target="_blank">Скачать шаблон</a></p>
+                            <p><a href={psd} >Скачать шаблон</a></p>
                             <p><a
                                 href="http://psd-html-css.ru/templates/besplatnyy-psd-shablon-lendingovoy-stranicy-agenstva"
-                                target="_blank">Ссылка на исходный шаблон</a></p>
+                                >Ссылка на исходный шаблон</a></p>
                         </div>
                     </div>
                     <div className="col-md-4">
