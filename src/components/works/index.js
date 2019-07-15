@@ -43,7 +43,4 @@ class Works extends Component{
     }
 }
 
-
-
-
 export default Works

@@ -5,6 +5,12 @@ import map from '../../images/map.jpg'
 class Contact extends Component{
 
     render() {
+
+        const phone = '+548 945645';
+        const fax = '+456456 54546';
+        const web = 'www.designagency.net';
+        const email_contact = 'info@designagency.net';
+
         return(
             <div id='contact'>
                 <div className="container">
@@ -34,10 +40,10 @@ class Contact extends Component{
                             <div className="wrapper-map">
                                 <p>Adress line 1</p>
                                 <p>Adress line 2</p>
-                                <p>Phone: +548 945645</p>
-                                <p className="fax">Fax: +456456 54546</p>
-                                <p>Web: www.designagency.net</p>
-                                <p>E-mail: info@designagency.net</p>
+                                <p>Phone: {phone}</p>
+                                <p className="fax">Fax: {fax}</p>
+                                <p>Web: {web}</p>
+                                <p>E-mail: {email_contact}</p>
 
                                 <div className="map">
                                     <img src={map} alt="map"/>
