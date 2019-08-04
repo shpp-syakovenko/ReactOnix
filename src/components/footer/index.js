@@ -1,5 +1,5 @@
 import React from 'react'
-import psd from '../../file/Shopno_one_page.psd'
+import psd from '../../assets/file/Shopno_one_page.psd'
 
 export default function Footer () {
     return(

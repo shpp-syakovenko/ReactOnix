@@ -8,7 +8,7 @@ import Logos from './logos'
 import Contact from './contact'
 import Footer from './footer'
 import 'bootstrap/dist/css/bootstrap-grid.css'
-import '../style/css/main.css'
+import '../assets/css/main.css'
 
 function App(){
     return(
