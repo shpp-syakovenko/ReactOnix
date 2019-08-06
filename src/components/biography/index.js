@@ -73,6 +73,22 @@ class Biography extends Component{
             years: this.state.years.sort((a,b) => a.year - b.year)
         })
     };
+// Sorting array with bubble sort
+    handleSortBubble = () => {
+
+        let n = this.state.years.length;
+        const arr = this.state.years;
+        for (let i = 0; i < n-1; i++){
+            for (let j = 0; j < n-1-i; j++){
+                if (arr[j+1].year < arr[j].year){
+                    let t = arr[j+1]; arr[j+1] = arr[j]; arr[j] = t;
+                }
+            }
+        }
+        this.setState({
+            years: arr
+        })
+    };
 
 // Reset form
     handelReset = (e) => {
@@ -113,7 +129,13 @@ class Biography extends Component{
                             <table className="myBiography">
                                 <tbody>
                                     <tr>
-                                        <th>Year <button className='bth-sort' onClick={this.handleSort}>sort</button></th>
+                                        <th>
+                                            <div>
+                                                Year <button className='bth-sort' onClick={this.handleSort}>sort</button>
+                                                <button className='bth-sort' onClick={this.handleSortBubble}>sortBubble</button>
+                                            </div>
+
+                                        </th>
                                         <th colSpan="2">Information</th>
                                     </tr>
 

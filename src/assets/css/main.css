@@ -306,11 +306,11 @@ body {
 #biography .myBiography .bth-sort {
   background: #e1e3e7;
   padding: 5px 20px 5px 10px;
+  margin-right: 10px;
   font-size: 14px;
   cursor: pointer;
   border: 1px solid #505050;
   position: relative;
-  text-transform: uppercase;
   -webkit-transition: all 0.3s;
   transition: all 0.3s;
 }
@@ -357,6 +357,9 @@ body {
 }
 #biography .myBiography .yearItem, #biography .myBiography .td-delete {
   text-align: center;
+}
+#biography .myBiography .yearItem {
+  width: 250px;
 }
 #biography .wrapperFormYear {
   margin-top: 20px;
