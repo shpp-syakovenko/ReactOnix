@@ -12,9 +12,16 @@ class Header extends Component{
         }
     }
 
+// Open or close menu
+    handleMenu = () =>{
+        this.setState({
+            openMenu: !this.state.openMenu
+        })
+    };
+
     render() {
-        const menuToggle = this.state.openMenu ? <a href="#mobile-menu" className="toggle-mnu on" onClick={this.handleMenu}><span></span></a>
-                                               : <a href="#mobile-menu" className="toggle-mnu" onClick={this.handleMenu}><span></span></a>
+        const menuToggle = this.state.openMenu ? <a href="#mobile-menu" className="toggle-mnu on" onClick={this.handleMenu}><span/></a>
+                                               : <a href="#mobile-menu" className="toggle-mnu" onClick={this.handleMenu}><span/></a>
         const menu = this.state.openMenu &&
             <div className="menu">
                 <ul>
@@ -25,7 +32,7 @@ class Header extends Component{
                     <li><a href="#team">Small team</a></li>
                     <li><a href="#contact">Contact</a></li>
                 </ul>
-            </div>
+            </div>;
 
         return(
             <header id="header">
@@ -42,14 +49,14 @@ class Header extends Component{
                         </div>
                     </div>
                     <div className="row">
-                        <div className="col-md-1"></div>
+                        <div className="col-md-1"/>
                         <div className="col-md-10 col-12">
                             <h1>Say Hello to <span>SHOPNO!</span><br/><span>Agency</span> CORPORATE SHOPNO Theme</h1>
                         </div>
-                        <div className="col-md-1"></div>
+                        <div className="col-md-1"/>
                     </div>
                     <div className="row justify-content-around">
-                        <div className="col-md-4 col-3"></div>
+                        <div className="col-md-4 col-3"/>
                         <div className="col-md-4 col-6">
                             <div className="wrapper">
                                 <a href="\#" className="wrapper-button">contact us</a>
@@ -62,12 +69,6 @@ class Header extends Component{
                 </div>
             </header>
         )
-    }
-
-    handleMenu = () =>{
-        this.setState({
-            openMenu: !this.state.openMenu
-        })
     }
 }
 

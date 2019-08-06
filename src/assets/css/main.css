@@ -295,6 +295,111 @@ body {
   color: #b3b3b3;
 }
 
+#biography {
+  padding: 64px 0;
+  background-color: #eff0f2;
+}
+#biography .myBiography {
+  width: 100%;
+  border-collapse: collapse;
+}
+#biography .myBiography .bth-sort {
+  background: #e1e3e7;
+  padding: 5px 20px 5px 10px;
+  font-size: 14px;
+  cursor: pointer;
+  border: 1px solid #505050;
+  position: relative;
+  text-transform: uppercase;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+}
+#biography .myBiography .bth-sort:hover {
+  background-color: #d3d6db;
+}
+#biography .myBiography .bth-sort::after {
+  content: "";
+  position: absolute;
+  right: 5px;
+  top: 5px;
+  width: 10px;
+  height: 10px;
+  border-right: 2px solid #505050;
+  border-bottom: 2px solid #505050;
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+}
+#biography .myBiography .bth-delete {
+  background: #e1e3e7;
+  padding: 2px 10px;
+  font-size: 14px;
+  cursor: pointer;
+  border: 1px solid #505050;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+}
+#biography .myBiography .bth-delete:hover {
+  color: red;
+  border: 1px solid red;
+  background-color: #d3d6db;
+}
+#biography .myBiography tbody {
+  width: 100%;
+}
+#biography .myBiography td {
+  border: 1px solid #505050;
+  padding: 10px;
+}
+#biography .myBiography th {
+  border: 1px solid #505050;
+  padding: 15px;
+  color: #505050;
+}
+#biography .myBiography .yearItem, #biography .myBiography .td-delete {
+  text-align: center;
+}
+#biography .wrapperFormYear {
+  margin-top: 20px;
+}
+#biography .wrapperFormYear .formYear {
+  margin: 10px 0;
+}
+#biography .wrapperFormYear .formYear input {
+  border: 1px solid #505050;
+  width: 200px;
+  padding: 5px 10px;
+  background: transparent;
+  color: #646565;
+}
+#biography .wrapperFormYear .formYear input:focus {
+  background: transparent;
+}
+#biography .wrapperFormYear .formYear .errorYears {
+  color: red;
+  padding: 0 20px;
+}
+#biography .wrapperFormYear .formText textarea {
+  color: #646565;
+  width: 100%;
+  height: 100px;
+  padding: 10px;
+  background: transparent;
+  border: 1px solid #505050;
+}
+#biography .wrapperFormYear .bth-add {
+  padding: 5px 10px;
+  cursor: pointer;
+  margin-top: 10px;
+  border: 1px solid #505050;
+  background: #e1e3e7;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+  margin-right: 10px;
+}
+#biography .wrapperFormYear .bth-add:hover {
+  background-color: #d3d6db;
+}
+
 #works {
   padding: 64px 0;
 }

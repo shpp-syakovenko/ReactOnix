@@ -9,12 +9,14 @@ import Contact from './contact'
 import Footer from './footer'
 import 'bootstrap/dist/css/bootstrap-grid.css'
 import '../assets/css/main.css'
+import Biography from "./biography";
 
 function App(){
     return(
         <Fragment>
             <Header />
             <Information />
+            <Biography />
             <Works />
             <Service />
             <Team />

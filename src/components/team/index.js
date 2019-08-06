@@ -26,10 +26,10 @@ class Team  extends Component{
                                         <p>Lorem Ipsum is not simply is an action designer random text
                                             It has roots in a piece. </p>
                                         <ul className="social">
-                                            <li><a href="#team"><i className="icon-facebook-1"></i></a></li>
-                                            <li><a href="#team"><i className="icon-twitter"></i></a></li>
-                                            <li><a href="#team"><i className="icon-dribbble-1"></i></a></li>
-                                            <li><a href="#team"><i className="icon-mail"></i></a></li>
+                                            <li><a href="#team"><i className="icon-facebook-1"/></a></li>
+                                            <li><a href="#team"><i className="icon-twitter"/></a></li>
+                                            <li><a href="#team"><i className="icon-dribbble-1"/></a></li>
+                                            <li><a href="#team"><i className="icon-mail"/></a></li>
                                         </ul>
                                     </div>
                             </div>
@@ -42,10 +42,10 @@ class Team  extends Component{
                                         <p>Lorem Ipsum is not simply is an action designer random text
                                             It has roots in a piece. </p>
                                         <ul className="social">
-                                            <li><a href="#team"><i className="icon-facebook-1"></i></a></li>
-                                            <li><a href="#team"><i className="icon-twitter"></i></a></li>
-                                            <li><a href="#team"><i className="icon-dribbble-1"></i></a></li>
-                                            <li><a href="#team"><i className="icon-mail"></i></a></li>
+                                            <li><a href="#team"><i className="icon-facebook-1"/></a></li>
+                                            <li><a href="#team"><i className="icon-twitter"/></a></li>
+                                            <li><a href="#team"><i className="icon-dribbble-1"/></a></li>
+                                            <li><a href="#team"><i className="icon-mail"/></a></li>
                                         </ul>
                                     </div>
                             </div>
@@ -58,10 +58,10 @@ class Team  extends Component{
                                         <p>Lorem Ipsum is not simply is an action designer random text
                                             It has roots in a piece. </p>
                                         <ul className="social">
-                                            <li><a href="#team"><i className="icon-facebook-1"></i></a></li>
-                                            <li><a href="#team"><i className="icon-twitter"></i></a></li>
-                                            <li><a href="#team"><i className="icon-dribbble-1"></i></a></li>
-                                            <li><a href="#team"><i className="icon-mail"></i></a></li>
+                                            <li><a href="#team"><i className="icon-facebook-1"/></a></li>
+                                            <li><a href="#team"><i className="icon-twitter"/></a></li>
+                                            <li><a href="#team"><i className="icon-dribbble-1"/></a></li>
+                                            <li><a href="#team"><i className="icon-mail"/></a></li>
                                         </ul>
                                     </div>
                             </div>
@@ -74,10 +74,10 @@ class Team  extends Component{
                                         <p>Lorem Ipsum is not simply is an action designer random text
                                             It has roots in a piece. </p>
                                         <ul className="social">
-                                            <li><a href="#team"><i className="icon-facebook-1"></i></a></li>
-                                            <li><a href="#team"><i className="icon-twitter"></i></a></li>
-                                            <li><a href="#team"><i className="icon-dribbble-1"></i></a></li>
-                                            <li><a href="#team"><i className="icon-mail"></i></a></li>
+                                            <li><a href="#team"><i className="icon-facebook-1"/></a></li>
+                                            <li><a href="#team"><i className="icon-twitter"/></a></li>
+                                            <li><a href="#team"><i className="icon-dribbble-1"/></a></li>
+                                            <li><a href="#team"><i className="icon-mail"/></a></li>
                                         </ul>
                                     </div>
                             </div>
@@ -90,10 +90,10 @@ class Team  extends Component{
                                         <p>Lorem Ipsum is not simply is an action designer random text
                                             It has roots in a piece. </p>
                                         <ul className="social">
-                                            <li><a href="#team"><i className="icon-facebook-1"></i></a></li>
-                                            <li><a href="#team"><i className="icon-twitter"></i></a></li>
-                                            <li><a href="#team"><i className="icon-dribbble-1"></i></a></li>
-                                            <li><a href="#team"><i className="icon-mail"></i></a></li>
+                                            <li><a href="#team"><i className="icon-facebook-1"/></a></li>
+                                            <li><a href="#team"><i className="icon-twitter"/></a></li>
+                                            <li><a href="#team"><i className="icon-dribbble-1"/></a></li>
+                                            <li><a href="#team"><i className="icon-mail"/></a></li>
                                         </ul>
                                     </div>
                             </div>
@@ -106,10 +106,10 @@ class Team  extends Component{
                                         <p>Lorem Ipsum is not simply is an action designer random text
                                             It has roots in a piece. </p>
                                         <ul className="social">
-                                            <li><a href="#team"><i className="icon-facebook-1"></i></a></li>
-                                            <li><a href="#team"><i className="icon-twitter"></i></a></li>
-                                            <li><a href="#team"><i className="icon-dribbble-1"></i></a></li>
-                                            <li><a href="#team"><i className="icon-mail"></i></a></li>
+                                            <li><a href="#team"><i className="icon-facebook-1"/></a></li>
+                                            <li><a href="#team"><i className="icon-twitter"/></a></li>
+                                            <li><a href="#team"><i className="icon-dribbble-1"/></a></li>
+                                            <li><a href="#team"><i className="icon-mail"/></a></li>
                                         </ul>
                                     </div>
                             </div>
