@@ -14,11 +14,6 @@ class Biography extends Component{
             id: years.length,
             years: years
         };
-
-        // Вопрос по поводу этой конструкции..
-        //this.handleChangeYear = this.handleChangeYear.bind(this);
-        //this.handleChangeInfo = this.handleChangeInfo.bind(this);
-        //this.handleSubmit = this.handleSubmit.bind(this);
     }
 
 // Add new element in array
@@ -81,7 +76,9 @@ class Biography extends Component{
         for (let i = 0; i < n-1; i++){
             for (let j = 0; j < n-1-i; j++){
                 if (arr[j+1].year < arr[j].year){
-                    let t = arr[j+1]; arr[j+1] = arr[j]; arr[j] = t;
+                    let t = arr[j+1];
+                    arr[j+1] = arr[j];
+                    arr[j] = t;
                 }
             }
         }
