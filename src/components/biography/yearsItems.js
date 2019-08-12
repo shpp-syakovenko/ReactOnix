@@ -8,12 +8,19 @@ class YearsItems extends Component{
 
         const{years,handleDeleteClick} = this.props;
 
-        const yearsElement = years.map((item) =>
+        const arrList = [];
+        for(let item in years){
+            arrList.push(years[item]);
+        }
+
+
+        const yearsElement = arrList.map((item) =>
 
             <YearItem key={item.id} item={item}
                       onButtonClick = {handleDeleteClick.bind(this, item.id)}
             />
         );
+
 
         return(
             <Fragment>

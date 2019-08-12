@@ -1,20 +1,41 @@
 import React,{Component} from 'react'
 import YearsItems from './yearsItems'
-import years from './year'
 import FormAdd from "./formAdd";
 
 class Biography extends Component{
     constructor(props){
         super(props);
 
+        this.element = 0;
+
         this.state = {
             errorYear: false,
             text: '',
             year: '',
-            id: years.length,
-            years: years
+            element: 0,
+            biographyList: {
+                ...this.createStartList(1988, 'Дата рождения'),
+                ...this.createStartList(1995, 'Первый день в школе №29'),
+                ...this.createStartList(2010, 'Срочная служба в армии в/ч 3007'),
+                ...this.createStartList(2005, 'Поступление в ГЛАУ'),
+                ...this.createStartList(2017, 'Учеба в школе програмирования Ш++'),
+                ...this.createStartList(2011, 'Контрактная служба в Национально гвардии в/ч 3011'),
+            }
         };
     }
+
+// Add start list information for me
+    createStartList = (year, info) => {
+       return  this.createObj('element' + this.element, {id: this.element, year: year, info: info})
+    };
+
+// Create element by list
+    createObj = (index, v) => {
+        let obj ={};
+        obj[index] = v;
+        this.element++;
+        return obj;
+    };
 
 // Add new element in array
     handleSubmit = (e) =>{
@@ -32,17 +53,21 @@ class Biography extends Component{
                 errorYear: false
             });
         }
+
         const newItem = {
+            id: this.element,
             year: +this.state.year,
             info: this.state.text,
-            id: this.state.id
+
         };
 
         this.setState({
-            years: this.state.years.concat(newItem),
-            id: this.state.id + 1,
             text: '',
-            year: ''
+            year: '',
+            biographyList: {
+                ...this.state.biographyList,
+                ...this.createObj('element' + this.element, newItem)
+            }
         });
     };
 
@@ -64,15 +89,36 @@ class Biography extends Component{
 
 // Sort array
     handleSort = () => {
+
+        let obj = this.state.biographyList;
+        let arr = [];
+        for(let key in obj){
+            arr.push(obj[key])
+        }
+
+        arr = arr.sort((a,b) => a.year - b.year);
+
+        obj = {...arr};
+        this.sortById(obj);
+
         this.setState({
-            years: this.state.years.sort((a,b) => a.year - b.year)
+            biographyList: obj
+
         })
     };
 // Sorting array with bubble sort
     handleSortBubble = () => {
 
-        let n = this.state.years.length;
-        const arr = this.state.years;
+
+        let obj = this.state.biographyList;
+        let arr = [];
+        for(let key in obj){
+            arr.push(obj[key])
+        }
+
+        let n = arr.length;
+
+
         for (let i = 0; i < n-1; i++){
             for (let j = 0; j < n-1-i; j++){
                 if (arr[j+1].year < arr[j].year){
@@ -82,8 +128,12 @@ class Biography extends Component{
                 }
             }
         }
+        obj = {...arr};
+        this.sortById(obj);
+
         this.setState({
-            years: arr
+            biographyList: obj
+
         })
     };
 
@@ -96,17 +146,30 @@ class Biography extends Component{
         });
 
     };
+// Sort keys and id
+    sortById = (obj) => {
+        this.element = 0;
+
+        for(let key in obj){
+            obj['element' + this.element] = obj[key];
+            if('element' + this.element !== key){
+                delete obj[key];
+            }
+            obj['element' + this.element].id = this.element;
+            this.element++;
+        }
+
+    };
 
 // Sort array and delete element
     handleDelete = (id) => {
-        for(let i = 0; i < this.state.years.length; i++){
-            if(id === this.state.years[i].id){
-                this.state.years.splice(i,1);
-            }
-        }
+        let biography = this.state.biographyList;
+        delete biography['element' + id];
+
+        this.sortById(biography);
 
         this.setState({
-            years: this.state.years
+            biography: biography
         })
     };
 
@@ -136,7 +199,7 @@ class Biography extends Component{
                                         <th colSpan="2">Information</th>
                                     </tr>
 
-                                     <YearsItems years={this.state.years}
+                                     <YearsItems years={this.state.biographyList}
                                                  handleDeleteClick = {this.handleDelete}
                                      />
 
