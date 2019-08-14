@@ -8,9 +8,6 @@ class YearsItems extends Component{
 
         const{years,handleDeleteClick} = this.props;
 
-
-
-
         const yearsElement = Object.entries(years).map(([key,item]) =>
 
             <YearItem key={key} item={item}
