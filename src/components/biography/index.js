@@ -164,7 +164,7 @@ class Biography extends Component{
 // Sort array and delete element
     handleDelete = (id) => {
         let biography = this.state.biographyList;
-        delete biography['element' + id];
+        delete biography[id];
 
         this.sortById(biography);
 
