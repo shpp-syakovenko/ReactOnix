@@ -1,41 +1,20 @@
 import React,{Component} from 'react'
 import YearsItems from './yearsItems'
 import FormAdd from "./formAdd";
+import startBio from "./startBio";
 
 class Biography extends Component{
     constructor(props){
         super(props);
 
-        this.element = 0;
 
         this.state = {
             errorYear: false,
             text: '',
             year: '',
-            element: 0,
-            biographyList: {
-                ...this.createStartList(1988, 'Дата рождения'),
-                ...this.createStartList(1995, 'Первый день в школе №29'),
-                ...this.createStartList(2010, 'Срочная служба в армии в/ч 3007'),
-                ...this.createStartList(2005, 'Поступление в ГЛАУ'),
-                ...this.createStartList(2017, 'Учеба в школе програмирования Ш++'),
-                ...this.createStartList(2011, 'Контрактная служба в Национально гвардии в/ч 3011'),
-            }
+            biographyList: startBio
         };
     }
-
-// Add start list information for me
-    createStartList = (year, info) => {
-       return  this.createObj('element' + this.element, {id: this.element, year: year, info: info})
-    };
-
-// Create element by list
-    createObj = (index, v) => {
-        let obj ={};
-        obj[index] = v;
-        this.element++;
-        return obj;
-    };
 
 // Add new element in array
     handleSubmit = (e) =>{
@@ -55,10 +34,8 @@ class Biography extends Component{
         }
 
         const newItem = {
-            id: this.element,
-            year: +this.state.year,
+            years: +this.state.year,
             info: this.state.text,
-
         };
 
         this.setState({
@@ -66,7 +43,7 @@ class Biography extends Component{
             year: '',
             biographyList: {
                 ...this.state.biographyList,
-                ...this.createObj('element' + this.element, newItem)
+                [Object.keys(this.state.biographyList).length] : newItem
             }
         });
     };
@@ -90,49 +67,36 @@ class Biography extends Component{
 // Sort array
     handleSort = () => {
 
-        let obj = this.state.biographyList;
-        let arr = [];
-        for(let key in obj){
-            arr.push(obj[key])
-        }
+        let obj = {...this.state.biographyList};
+        let arr = Object.values(obj);
 
-        arr = arr.sort((a,b) => a.year - b.year);
-
-        obj = {...arr};
-        this.sortById(obj);
+        arr = arr.sort((a,b) => a.years - b.years);
 
         this.setState({
-            biographyList: obj
+            biographyList: {...arr}
 
         })
     };
 // Sorting array with bubble sort
     handleSortBubble = () => {
 
-
-        let obj = this.state.biographyList;
-        let arr = [];
-        for(let key in obj){
-            arr.push(obj[key])
-        }
+        let obj = {...this.state.biographyList};
+        let arr = Object.values(obj);
 
         let n = arr.length;
 
-
         for (let i = 0; i < n-1; i++){
             for (let j = 0; j < n-1-i; j++){
-                if (arr[j+1].year < arr[j].year){
+                if (arr[j+1].years < arr[j].years){
                     let t = arr[j+1];
                     arr[j+1] = arr[j];
                     arr[j] = t;
                 }
             }
         }
-        obj = {...arr};
-        this.sortById(obj);
 
         this.setState({
-            biographyList: obj
+            biographyList: {...arr}
 
         })
     };
@@ -146,30 +110,14 @@ class Biography extends Component{
         });
 
     };
-// Sort keys and id
-    sortById = (obj) => {
-        this.element = 0;
-
-        for(let key in obj){
-            obj['element' + this.element] = obj[key];
-            if('element' + this.element !== key){
-                delete obj[key];
-            }
-            obj['element' + this.element].id = this.element;
-            this.element++;
-        }
-
-    };
 
 // Sort array and delete element
     handleDelete = (id) => {
-        let biography = this.state.biographyList;
+        let biography = {...this.state.biographyList};
         delete biography[id];
 
-        this.sortById(biography);
-
         this.setState({
-            biography: biography
+            biographyList: {...Object.values(biography)}
         })
     };
 
