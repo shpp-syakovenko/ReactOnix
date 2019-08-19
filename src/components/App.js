@@ -10,6 +10,7 @@ import Footer from './footer'
 import 'bootstrap/dist/css/bootstrap-grid.css'
 import '../assets/css/main.css'
 import Biography from "./biography";
+import Films from './films'
 
 function App(){
     return(
@@ -17,6 +18,7 @@ function App(){
             <Header />
             <Information />
             <Biography />
+            <Films />
             <Works />
             <Service />
             <Team />

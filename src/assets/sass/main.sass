@@ -221,6 +221,35 @@ body
       &:hover
         background-color: darken($bg-header, 10%)
 
+// Section Films
+#films
+  padding: 64px 0
+  background-color: lighten($bg-footer, 30%)
+  .title-section, .title-description
+    color: darken($white, 10%)
+  .listFilm
+    margin: 0
+    padding: 0
+    list-style: none
+    li
+      margin-bottom: 30px
+      background-color: $bg-footer
+      padding: 20px
+      h3
+        color: darken($white, 20%)
+        margin: 0
+      p
+        color: lighten($text-color, 15%)
+        line-height: 22px
+      .date
+        color: lighten($text-color, 20%)
+        font-size: 18px
+        span
+          font-size: 16px
+  .loader
+    text-align: center
+    img
+      width: 250px
 
 // SECTION WORKS
 #works
