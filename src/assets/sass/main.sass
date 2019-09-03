@@ -179,10 +179,13 @@ body
     td
       border: 1px solid $title-dark
       padding: 10px
+      cursor: pointer
     th
       border: 1px solid $title-dark
       padding: 15px
       color: $title-dark
+    .activeYears
+      background-color: darken($bg-header, 20%)
     .yearItem, .td-delete
       text-align: center
     .yearItem
@@ -235,11 +238,24 @@ body
       margin-bottom: 30px
       background-color: $bg-footer
       padding: 20px
+      border: 2px solid transparent
+      width: 100%
+      color: lighten($text-color, 15%)
+      cursor: pointer
+      user-select: none
+      &.activeFilm
+        background-color: darken($bg-footer, 5%)
+        border: 2px solid #0000cc
+      &.ctrlClass
+        background-color: darken($bg-footer, 15%)
+        border: 2px solid #00cccc
+      &.altClass
+        background-color: darken($bg-footer, 30%)
+        border: 2px solid #cc00cc
       h3
         color: darken($white, 20%)
         margin: 0
       p
-        color: lighten($text-color, 15%)
         line-height: 22px
       .date
         color: lighten($text-color, 20%)
@@ -250,6 +266,9 @@ body
     text-align: center
     img
       width: 250px
+
+
+
 
 // SECTION WORKS
 #works

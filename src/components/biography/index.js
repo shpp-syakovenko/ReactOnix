@@ -121,6 +121,18 @@ class Biography extends Component{
         })
     };
 
+activeYears = (e) => {
+    let arrTr = e.currentTarget.childNodes;
+    let currentTr = e.target.closest('tr');
+    if(currentTr === null || arrTr[0] === currentTr) return;
+    for(let node of arrTr){
+        if(node !== currentTr){
+            node.classList.remove('activeYears');
+        }
+    }
+    currentTr.classList.toggle('activeYears');
+};
+
     render() {
         return(
             <section id="biography">
@@ -134,8 +146,8 @@ class Biography extends Component{
 
                     <div className="row">
                         <div className="col-12">
-                            <table className="myBiography">
-                                <tbody>
+                            <table className="myBiography" >
+                                <tbody onClick={this.activeYears}>
                                     <tr>
                                         <th>
                                             <div>
@@ -149,6 +161,7 @@ class Biography extends Component{
 
                                      <YearsItems years={this.state.biographyList}
                                                  handleDeleteClick = {this.handleDelete}
+                                                 //activeYear = {this.activeYear}
                                      />
 
                                 </tbody>

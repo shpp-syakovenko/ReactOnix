@@ -349,11 +349,15 @@ body {
 #biography .myBiography td {
   border: 1px solid #505050;
   padding: 10px;
+  cursor: pointer;
 }
 #biography .myBiography th {
   border: 1px solid #505050;
   padding: 15px;
   color: #505050;
+}
+#biography .myBiography .activeYears {
+  background-color: #b7bbc4;
 }
 #biography .myBiography .yearItem, #biography .myBiography .td-delete {
   text-align: center;
@@ -419,13 +423,32 @@ body {
   margin-bottom: 30px;
   background-color: #262b2e;
   padding: 20px;
+  border: 2px solid transparent;
+  width: 100%;
+  color: #8a8b8b;
+  cursor: pointer;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+#films .listFilm li.activeFilm {
+  background-color: #1a1e20;
+  border: 2px solid #0000cc;
+}
+#films .listFilm li.ctrlClass {
+  background-color: #030404;
+  border: 2px solid #00cccc;
+}
+#films .listFilm li.altClass {
+  background-color: black;
+  border: 2px solid #cc00cc;
 }
 #films .listFilm li h3 {
   color: #cccccc;
   margin: 0;
 }
 #films .listFilm li p {
-  color: #8a8b8b;
   line-height: 22px;
 }
 #films .listFilm li .date {
