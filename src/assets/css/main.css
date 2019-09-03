@@ -427,10 +427,6 @@ body {
   width: 100%;
   color: #8a8b8b;
   cursor: pointer;
-  -webkit-user-select: none;
-     -moz-user-select: none;
-      -ms-user-select: none;
-          user-select: none;
 }
 #films .listFilm li.activeFilm {
   background-color: #1a1e20;

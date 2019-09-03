@@ -1,7 +1,7 @@
-import React,{Component} from 'react'
+import React, {Component} from 'react'
 
 
-class Film extends Component{
+class Film extends Component {
 
     render() {
         const {film, handleActive, activeBool, onDragStartFilm, onDragFinishFilm, onDragOverFilm, index, ctrl, alt} = this.props;
@@ -12,22 +12,21 @@ class Film extends Component{
         const release_date = film.release_date;
         const activeClass = ctrl ? 'ctrlClass' : alt ? 'altClass' : 'activeFilm';
 
-        return(
+        return (
             <li onClick={(e) => handleActive(film.id, e)} className={activeBool ? activeClass : null}
                 draggable
-                onDragStart = {() => onDragStartFilm(index)}
+                onDragStart={() => onDragStartFilm(index)}
                 onDragOver={() => onDragOverFilm(index)}
-                onDragEnd = {onDragFinishFilm}
+                onDragEnd={onDragFinishFilm}
             >
                 <div className="row">
-                    <div className="col-lg-2 col-4"><img src={linkImg}  alt={title}/></div>
+                    <div className="col-lg-2 col-4"><img src={linkImg} alt={title}/></div>
                     <div className="col-lg-10 col-8">
                         <h3>{original_title}</h3>
                         <p>{overview}</p>
                         <div className='date'>Release date: <span>{release_date}</span></div>
                     </div>
                 </div>
-
             </li>
         )
     }

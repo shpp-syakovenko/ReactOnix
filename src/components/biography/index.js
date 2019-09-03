@@ -1,33 +1,34 @@
-import React,{Component} from 'react'
+import React, {Component} from 'react'
 import YearsItems from './yearsItems'
 import FormAdd from "./formAdd";
 import startBio from "./startBio";
 
-class Biography extends Component{
-    constructor(props){
+class Biography extends Component {
+    constructor(props) {
         super(props);
-
 
         this.state = {
             errorYear: false,
             text: '',
             year: '',
-            biographyList: startBio
+            biographyList: startBio,
+            startYear: null,
+            overYear: null
         };
     }
 
 // Add new element in array
-    handleSubmit = (e) =>{
+    handleSubmit = (e) => {
         e.preventDefault();
-        if(!this.state.year.length || !this.state.text.length){
+        if (!this.state.year.length || !this.state.text.length) {
             return;
         }
-        if(isNaN(+this.state.year)){
+        if (isNaN(+this.state.year)) {
             this.setState({
                 errorYear: true
             });
             return;
-        }else{
+        } else {
             this.setState({
                 errorYear: false
             });
@@ -43,13 +44,13 @@ class Biography extends Component{
             year: '',
             biographyList: {
                 ...this.state.biographyList,
-                [Object.keys(this.state.biographyList).length] : newItem
+                [Object.keys(this.state.biographyList).length]: newItem
             }
         });
     };
 
 // Change <input/> writes in state
-    handleChangeYear = (e) =>{
+    handleChangeYear = (e) => {
         e.preventDefault();
         this.setState({
             year: e.target.value
@@ -57,7 +58,7 @@ class Biography extends Component{
     };
 
 // Change <textarea/> writes in state
-    handleChangeInfo = (e) =>{
+    handleChangeInfo = (e) => {
         e.preventDefault();
         this.setState({
             text: e.target.value
@@ -70,7 +71,7 @@ class Biography extends Component{
         let obj = {...this.state.biographyList};
         let arr = Object.values(obj);
 
-        arr = arr.sort((a,b) => a.years - b.years);
+        arr = arr.sort((a, b) => a.years - b.years);
 
         this.setState({
             biographyList: {...arr}
@@ -85,11 +86,11 @@ class Biography extends Component{
 
         let n = arr.length;
 
-        for (let i = 0; i < n-1; i++){
-            for (let j = 0; j < n-1-i; j++){
-                if (arr[j+1].years < arr[j].years){
-                    let t = arr[j+1];
-                    arr[j+1] = arr[j];
+        for (let i = 0; i < n - 1; i++) {
+            for (let j = 0; j < n - 1 - i; j++) {
+                if (arr[j + 1].years < arr[j].years) {
+                    let t = arr[j + 1];
+                    arr[j + 1] = arr[j];
                     arr[j] = t;
                 }
             }
@@ -97,7 +98,6 @@ class Biography extends Component{
 
         this.setState({
             biographyList: {...arr}
-
         })
     };
 
@@ -108,7 +108,6 @@ class Biography extends Component{
             text: '',
             year: ''
         });
-
     };
 
 // Sort array and delete element
@@ -121,20 +120,48 @@ class Biography extends Component{
         })
     };
 
-activeYears = (e) => {
-    let arrTr = e.currentTarget.childNodes;
-    let currentTr = e.target.closest('tr');
-    if(currentTr === null || arrTr[0] === currentTr) return;
-    for(let node of arrTr){
-        if(node !== currentTr){
-            node.classList.remove('activeYears');
+    activeYears = (e) => {
+        let arrTr = e.currentTarget.childNodes;
+        let currentTr = e.target.closest('tr');
+
+        if (currentTr === null || arrTr[0] === currentTr || e.target.type === 'button') return;
+
+        for (let node of arrTr) {
+            if (node !== currentTr) {
+                node.classList.remove('activeYears');
+            }
         }
-    }
-    currentTr.classList.toggle('activeYears');
-};
+        currentTr.classList.toggle('activeYears');
+    };
+
+// Save start Year item
+    onStartYear = (index) => {
+        this.setState({
+            startYear: index
+        })
+    };
+// Save item over Years
+    onOverYear = (index) => {
+        this.setState({
+            overYear: index
+        })
+    };
+// Replace start item on the finish item
+    onFinishYear = () => {
+        const {biographyList, startYear, overYear} = this.state;
+        let temp = biographyList[startYear];
+        biographyList[startYear] = biographyList[overYear];
+        biographyList[overYear] = temp;
+
+        this.setState({
+            biographyList,
+            startYear: null,
+            overYear: null
+        })
+    };
 
     render() {
-        return(
+        return (
             <section id="biography">
                 <div className="container">
                     <div className="row">
@@ -146,23 +173,26 @@ activeYears = (e) => {
 
                     <div className="row">
                         <div className="col-12">
-                            <table className="myBiography" >
+                            <table className="myBiography">
                                 <tbody onClick={this.activeYears}>
-                                    <tr>
-                                        <th>
-                                            <div>
-                                                Year <button className='bth-sort' onClick={this.handleSort}>sort</button>
-                                                <button className='bth-sort' onClick={this.handleSortBubble}>sortBubble</button>
-                                            </div>
+                                <tr>
+                                    <th>
+                                        <div>
+                                            Year <button className='bth-sort' onClick={this.handleSort}>sort</button>
+                                            <button className='bth-sort' onClick={this.handleSortBubble}>sortBubble
+                                            </button>
+                                        </div>
 
-                                        </th>
-                                        <th colSpan="2">Information</th>
-                                    </tr>
+                                    </th>
+                                    <th colSpan="2">Information</th>
+                                </tr>
 
-                                     <YearsItems years={this.state.biographyList}
-                                                 handleDeleteClick = {this.handleDelete}
-                                                 //activeYear = {this.activeYear}
-                                     />
+                                <YearsItems years={this.state.biographyList}
+                                            handleDeleteClick={this.handleDelete}
+                                            onStartYear={this.onStartYear}
+                                            onOverYear={this.onOverYear}
+                                            onFinishYear={this.onFinishYear}
+                                />
 
                                 </tbody>
                             </table>
@@ -172,13 +202,14 @@ activeYears = (e) => {
                     <div className='row'>
                         <div className="col-12">
 
-                            <FormAdd handleSubmit = {this.handleSubmit}
-                                     handleChangeYear = {this.handleChangeYear}
-                                     year = {this.state.year}
-                                     errorYear = {this.state.errorYear}
-                                     handleChangeInfo = {this.handleChangeInfo}
-                                     text = {this.state.text}
-                                     handelReset = {this.handelReset}
+                            <FormAdd handleSubmit={this.handleSubmit}
+                                     handleChangeYear={this.handleChangeYear}
+                                     year={this.state.year}
+                                     errorYear={this.state.errorYear}
+                                     handleChangeInfo={this.handleChangeInfo}
+                                     text={this.state.text}
+                                     handelReset={this.handelReset}
+
                             />
 
                         </div>
