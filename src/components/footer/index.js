@@ -1,7 +1,7 @@
 import React from 'react'
 import psd from '../../assets/file/Shopno_one_page.psd'
 
-export default function Footer () {
+const Footer = () => {
     return(
         <footer id="footer">
             <div className="container">
@@ -53,5 +53,6 @@ export default function Footer () {
             </div>
         </footer>
     )
+};
 
-}
+export default Footer;

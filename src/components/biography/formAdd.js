@@ -1,9 +1,8 @@
-import React, {Component} from "react";
+import React from "react";
 
 
-class FormAdd extends Component {
-    render() {
-        const {handleSubmit, handleChangeYear, year, errorYear, handleChangeInfo, text, handelReset} = this.props;
+const FormAdd = (props) => {
+        const {handleSubmit, handleChangeYear, year, errorYear, handleChangeInfo, text, handelReset} = props;
         return (
             <div className="wrapperFormYear">
                 <form onSubmit={handleSubmit}>
@@ -35,8 +34,7 @@ class FormAdd extends Component {
 
                 </form>
             </div>
-        );
-    }
-}
+        )
+};
 
 export default FormAdd

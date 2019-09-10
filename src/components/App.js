@@ -12,7 +12,7 @@ import '../assets/css/main.css'
 import Biography from "./biography";
 import Films from './films'
 
-function App(){
+const App = () => {
     return(
         <Fragment>
             <Header />
@@ -27,7 +27,7 @@ function App(){
             <Footer/>
         </Fragment>
     )
-}
+};
 
 export default App
 

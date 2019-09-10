@@ -95,7 +95,6 @@ class Biography extends Component {
                 }
             }
         }
-
         this.setState({
             biographyList: {...arr}
         })
@@ -209,9 +208,7 @@ class Biography extends Component {
                                      handleChangeInfo={this.handleChangeInfo}
                                      text={this.state.text}
                                      handelReset={this.handelReset}
-
                             />
-
                         </div>
                     </div>
                 </div>

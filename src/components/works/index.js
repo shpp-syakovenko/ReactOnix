@@ -1,4 +1,4 @@
-import React,{Component} from 'react'
+import React from 'react'
 import img_1 from '../../assets/images/img-1.jpg'
 import img_2 from '../../assets/images/img-2.jpg'
 import img_3 from '../../assets/images/img-3.jpg'
@@ -6,8 +6,7 @@ import img_4 from '../../assets/images/img-4.jpg'
 import img_5 from '../../assets/images/img-5.jpg'
 import img_6 from '../../assets/images/img-6.jpg'
 
-class Works extends Component{
-    render() {
+const Works = () => {
         return(
             <section id="works">
                 <div className="container">
@@ -40,7 +39,6 @@ class Works extends Component{
                 </div>
             </section>
         )
-    }
-}
+};
 
 export default Works

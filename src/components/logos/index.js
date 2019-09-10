@@ -2,7 +2,7 @@ import React from 'react'
 import logos from '../../assets/images/logo.png'
 
 
-function Logos(){
+const Logos = () =>{
     return(
         <div id="logo-section">
             <div className="container">
@@ -14,6 +14,6 @@ function Logos(){
             </div>
         </div>
     )
-}
+};
 
 export default Logos

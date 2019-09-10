@@ -59,7 +59,8 @@ class Films extends Component {
 
 // Get promise with api.themoviedb.org and set state data.
     componentDidMount() {
-        fetch('https://api.themoviedb.org/3/movie/popular?apikey=' + process.env.APY_KEY + '&language=en-US&page=1')
+
+        fetch(process.env.REACT_APP_API_URL)
             .then(response => response.json())
             .then((result) => {
                 this.setState({

@@ -1,4 +1,4 @@
-import React,{Component} from 'react'
+import React from 'react'
 import team_1 from '../../assets/images/team-1.jpg'
 import team_2 from '../../assets/images/team-2.jpg'
 import team_3 from '../../assets/images/team-3.jpg'
@@ -6,8 +6,7 @@ import team_4 from '../../assets/images/team-4.jpg'
 import team_5 from '../../assets/images/team-5.jpg'
 
 
-class Team  extends Component{
-    render() {
+const Team  = () => {
         return(
             <section id="team">
                 <div className="container">
@@ -118,9 +117,7 @@ class Team  extends Component{
                 </div>
             </section>
         )
-    }
-
-}
+};
 
 export default Team
 
