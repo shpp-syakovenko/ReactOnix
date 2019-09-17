@@ -1,0 +1,41 @@
+// Style for page About
+
+.wrapperAbout {
+  background-color: #fff;
+
+  .about {
+    max-width: 1200px;
+    padding: 70px 15px;
+    text-align: center;
+    margin: 0 auto;
+
+    h2 {
+      color: #505050;
+      font-family: Montserrat, sans-serif;
+      font-size: 38px;
+      text-transform: uppercase;
+    }
+
+    p {
+      font-family: Merriweather, sans-serif;
+      font-weight: normal;
+      font-size: 18px;
+      text-transform: uppercase;
+      color: #646565;
+    }
+
+    ul {
+      margin: 0;
+      padding: 15px;
+      list-style: none;
+      background-color: #262B2E;
+      text-align: left;
+      font-size: 18px;
+      color: #b3b3b3;
+
+      li {
+        padding: 15px;
+      }
+    }
+  }
+}

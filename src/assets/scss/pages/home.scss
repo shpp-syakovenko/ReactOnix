@@ -1,0 +1,211 @@
+.home {
+  background-color: #F8FAFA;
+  // Style for biographyList
+  .biography {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 70px 15px;
+
+    .titleBiography {
+      h2 {
+        margin: 0;
+        color: #505050;
+        font-family: Montserrat, sans-serif;
+        font-size: 38px;
+        text-align: center;
+        text-transform: uppercase;
+      }
+    }
+  }
+
+  table {
+    width: 100%;
+    margin: 30px 0;
+    border-collapse: collapse;
+
+    tr {
+      background-color: #545F66;
+      color: #DDD;
+    }
+
+    tr.activeYears {
+      background-color: #71F5EA;;
+      color: #545F66;
+    }
+
+    td, th {
+      border: 1px solid #262B2E;
+      padding: 15px 20px;
+    }
+
+    th {
+      button {
+        background-color: transparent;
+        color: #DDD;
+        border: 1px solid #DDD;
+        cursor: pointer;
+        margin: 0 10px;
+        transition: 0.3s;
+
+        &:hover {
+          color: #71F5EA;
+          border: 1px solid #71F5EA;
+        }
+      }
+    }
+
+    td {
+      cursor: pointer;
+    }
+
+    .yearItem {
+      text-align: center;
+      width: 250px;
+    }
+
+    .delete {
+      width: 80px;
+      text-align: center;
+      padding: 0;
+
+      button {
+        border: none;
+        background-color: transparent;
+        color: #DDD;
+        font-size: 30px;
+        padding: 0;
+        margin: 0;
+        cursor: pointer;
+        transition: 0.3s;
+
+        &:hover {
+          color: #E21212;
+        }
+      }
+
+    }
+  }
+
+  // Style for form which add new year
+  .wrapperFormYear {
+    .formYear {
+      margin: 15px 0;
+
+      input {
+        border: 2px solid #545F66;
+        background-color: transparent;
+        padding: 5px 15px;
+        font-size: 16px;
+        color: #505050;
+        width: 250px;
+      }
+    }
+
+    .errorYear {
+      color: #f00;
+      margin-left: 15px;
+    }
+
+    .formText {
+      margin: 15px 0;
+
+      textarea {
+        border: 2px solid #545F66;
+        background-color: transparent;
+        padding: 5px 15px;
+        font-size: 16px;
+        min-height: 150px;
+        color: #505050;
+        width: 100%;
+      }
+    }
+
+    button {
+      background-color: transparent;
+      color: #545F66;
+      border: 1px solid #545F66;
+      cursor: pointer;
+      transition: 0.3s;
+      padding: 5px 10px;
+      margin-right: 15px;
+
+      &:hover {
+        background-color: #545F66;
+        color: #DDD;
+      }
+    }
+  }
+
+  // Style for list films
+  .film {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 30px 15px;
+
+    .titleFilm {
+      h2 {
+        margin: 0;
+        color: #505050;
+        font-family: Montserrat, sans-serif;
+        font-size: 38px;
+        text-align: center;
+        text-transform: uppercase;
+      }
+    }
+
+    .listFilm {
+      ul {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+
+        li {
+          cursor: pointer;
+
+          .filmItem {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            background-color: #545F66;
+            color: #DDD;
+            padding: 15px;
+            margin-top: 25px;
+
+            &.activeFilm {
+              background-color: #222;
+            }
+
+            &.ctrlClass {
+              background-color: #444;
+            }
+
+            &.altClass {
+              background-color: #666;
+            }
+
+            img {
+              width: 200px;
+            }
+
+            .filmDescription {
+              padding: 0 15px;
+              text-align: left;
+              width: 100%;
+
+              h3 {
+                margin: 0;
+                font-size: 32px;
+              }
+
+              p {
+                font-size: 16px;
+                line-height: 24px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+}
