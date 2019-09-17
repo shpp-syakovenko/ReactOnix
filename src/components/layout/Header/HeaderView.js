@@ -1,6 +1,6 @@
 import React from 'react';
 import MenuToggle from './components/MenuToggle';
-import '../../../assets/scss/layout/header.scss';
+import '../../../scss/layout/header.scss';
 import water from '../../../assets/images/water.png';
 import MenuItem from "./components/MenuItem";
 

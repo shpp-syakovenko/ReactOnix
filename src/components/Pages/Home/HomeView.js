@@ -1,7 +1,7 @@
 import React from 'react';
 import Biography from "./components/Biography";
 import FormAddBiography from "./components/FormAddBiography";
-import '../../../assets/scss/pages/home.scss';
+import '../../../scss/pages/home.scss';
 import Film from "./components/Film";
 import Loader from "./components/Loader";
 

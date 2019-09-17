@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import '../../../assets/scss/layout/page.scss'
+import '../../../scss/layout/page.scss'
 import PageView from "./PageView";
 
 

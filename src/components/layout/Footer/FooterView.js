@@ -1,6 +1,6 @@
 import React from 'react';
 import psd from "../../../assets/file/Shopno_one_page.psd";
-import '../../../assets/scss/layout/footer.scss';
+import '../../../scss/layout/footer.scss';
 
 const FooterView = () => {
     return (

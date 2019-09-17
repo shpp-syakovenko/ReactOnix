@@ -1,5 +1,5 @@
 import React from 'react';
-import '../../../assets/scss/pages/about.scss'
+import '../../../scss/pages/about.scss'
 
 
 const AboutView = () => {
