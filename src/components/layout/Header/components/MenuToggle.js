@@ -1,18 +1,25 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 
-const MenuToggle = (props) => {
-    const {isOpen, handleMenu} = props;
+const MenuToggle = ({ isOpen, handleMenu }) => {
+  return (
+    <div className="menu">
+      <a href="/" className={isOpen ? 'toggle-mnu on' : 'toggle-mnu'} onClick={handleMenu}>
+        <span />
+      </a>
+    </div>
+  );
+};
 
-    const buttonToggle = isOpen ?
-        <a href="/" className="toggle-mnu on" onClick={handleMenu}><span/></a>
-        : <a href="/" className="toggle-mnu" onClick={handleMenu}><span/></a>;
-    return (
-        <div className='menu'>
-            {buttonToggle}
-        </div>
+MenuToggle.propTypes = {
+  isOpen: PropTypes.bool,
+  handleMenu: PropTypes.func
+};
 
-    )
+MenuToggle.defaultProps = {
+  isOpen: false,
+  handleMenu: undefined
 };
 
 export default MenuToggle;

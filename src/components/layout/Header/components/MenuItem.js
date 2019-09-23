@@ -1,20 +1,28 @@
 import React from 'react';
-import {NavLink} from 'react-router-dom';
+import PropTypes from 'prop-types';
+import { NavLink } from 'react-router-dom';
 
+const MenuItem = ({ isOpen }) => {
+  return (
+    <div className="menuItem">
+      {
+        isOpen ? (
+          <ul>
+            <li><NavLink exact activeClassName="activeMenuItem" to="/">Home</NavLink></li>
+            <li><NavLink exact activeClassName="activeMenuItem" to="/about">About</NavLink></li>
+          </ul>
+        ) : null
+      }
+    </div>
+  );
+};
 
-const MenuItem = (props) => {
-    const {isOpen} = props;
+MenuItem.propTypes = {
+  isOpen: PropTypes.bool
+};
 
-    const menu = isOpen ? <ul>
-                            <li><NavLink exact activeClassName='activeMenuItem' to="/">Home</NavLink></li>
-                            <li><NavLink exact activeClassName='activeMenuItem' to="/about">About</NavLink></li>
-                          </ul> : null;
-
-    return (
-        <div className='menuItem'>
-            {menu}
-        </div>
-    )
+MenuItem.defaultProps = {
+  isOpen: false
 };
 
 export default MenuItem;
