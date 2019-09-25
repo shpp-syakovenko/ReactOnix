@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 const MenuToggle = ({ isOpen, handleMenu }) => {
   return (
     <div className="menu">
-      <a href="/" className={isOpen ? 'toggle-mnu on' : 'toggle-mnu'} onClick={handleMenu}>
+      <a href="/" className={`${'toggle-mnu'}${isOpen ? ' on' : ''}`} onClick={handleMenu}>
         <span />
       </a>
     </div>
