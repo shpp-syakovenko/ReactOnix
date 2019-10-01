@@ -155,4 +155,17 @@ body {
 
 .page {
   font-family: Releway-Regular, sans-serif;
+  .pageUp{
+    display: inline-block;
+    position: fixed;
+    bottom: 50px;
+    right: 50px;
+    button{
+      padding: 15px 25px;
+      background-color: #71F5EA;
+      color: #262B2E;
+      cursor: pointer;
+      font-size: 18px;
+    }
+  }
 }
