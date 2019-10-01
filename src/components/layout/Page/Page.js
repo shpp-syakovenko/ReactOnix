@@ -18,6 +18,10 @@ class Page extends Component {
     window.addEventListener('scroll', this.trackScroll);
   }
 
+  componentWillUnmount() {
+    window.removeEventListener('scroll', this.trackScroll);
+  }
+
   trackScroll = () => {
     const { scrolled, coords } = this.state;
     this.setState({
