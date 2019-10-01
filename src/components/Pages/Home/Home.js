@@ -28,8 +28,7 @@ class Home extends Component {
         this.setState({
           filmList: result.results
         });
-      })
-      .catch((error) => alert(error.message));
+      });
   }
 
   // Save index for start film
