@@ -1,0 +1,43 @@
+.filmAbout{
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 70px 15px;
+  text-align: center;
+  .title{
+    font-size: 64px;
+    font-weight: bold;
+    padding-bottom: 15px;
+    span{
+      color: #0000ff;
+      font-size: 64px;
+    }
+  }
+  .homepage{
+    a{
+      color: red;
+      text-decoration: none;
+      font-weight: bold;
+      transition: all 0.5s;
+      &:hover{
+        color: #71F5EA;
+      }
+    }
+  }
+  div{
+    padding-top: 15px;
+    span{
+      color: #0000ff;
+      font-weight: bold;
+      font-size: 18px;
+    }
+  }
+  .logoPathCompany{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    img{
+      margin: 15px;
+    }
+  }
+}

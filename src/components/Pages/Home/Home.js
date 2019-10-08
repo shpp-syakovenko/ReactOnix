@@ -22,7 +22,7 @@ class Home extends Component {
 
   // Get promise with api.themoviedb.org and set state data.
   componentDidMount() {
-    fetch(process.env.REACT_APP_API_URL)
+    fetch(`${process.env.REACT_APP_BASE_URL}popular?${process.env.REACT_APP_APY_KEY}&language=en-US&page=1`)
       .then((response) => response.json())
       .then((result) => {
         this.setState({

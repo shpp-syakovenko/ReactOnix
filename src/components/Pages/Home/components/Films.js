@@ -1,13 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { NavLink } from 'react-router-dom';
 
-const Film = ({
+const Films = ({
   filmList, handleActiveFilm, activeFilm, onDragStartFilm, onDragFinishFilm, onDragOverFilm, handleKeyDown
 }) => {
   return (
     <ul>
       {
-        filmList.slice(0, 10)
+        filmList
           .map((film, index) => (
             <li
               key={film.id}
@@ -23,7 +24,9 @@ const Film = ({
                 tabIndex={index}
                 className={(activeFilm === film.id) ? 'filmItem activeFilm' : 'filmItem'}
               >
-                <img src={`https://image.tmdb.org/t/p/w200/${film.poster_path}`} alt={film.title} />
+                <NavLink to={`film/${film.id}`}>
+                  <img src={`https://image.tmdb.org/t/p/w200/${film.poster_path}`} alt={film.title} />
+                </NavLink>
                 <div className="filmDescription">
                   <h3>{film.original_title}</h3>
                   <p>{film.overview}</p>
@@ -31,6 +34,11 @@ const Film = ({
                     <strong>Release date:</strong> 
                     {' '}
                     <span>{film.release_date}</span>
+                  </div>
+                  <div className="more">
+                    <NavLink to={`film/${film.id}`}>
+                      More...
+                    </NavLink>
                   </div>
                 </div>
               </div>
@@ -41,7 +49,7 @@ const Film = ({
   );
 };
 
-Film.propTypes = {
+Films.propTypes = {
   filmList: PropTypes.arrayOf(PropTypes.object),
   handleActiveFilm: PropTypes.func,
   activeFilm: PropTypes.number,
@@ -51,7 +59,7 @@ Film.propTypes = {
   handleKeyDown: PropTypes.func
 };
 
-Film.defaultProps = {
+Films.defaultProps = {
   filmList: undefined,
   handleActiveFilm: undefined,
   activeFilm: null,
@@ -61,4 +69,4 @@ Film.defaultProps = {
   handleKeyDown: undefined
 };
 
-export default Film;
+export default Films;

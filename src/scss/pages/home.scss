@@ -182,6 +182,20 @@
             &.altClass {
               background-color: #666;
             }
+            .more{
+              padding: 20px 0;
+              a{
+                color: #71F5EA;
+                font-weight: bold;
+                text-decoration: none;
+                font-size: 18px;
+                letter-spacing: 2px;
+                transition: all 0.3s;
+                &:hover{
+                  color: darken(#71F5EA, 20%);
+                }
+              }
+            }
 
             img {
               width: 200px;

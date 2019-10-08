@@ -3,9 +3,8 @@ import PropTypes from 'prop-types';
 import Biography from './components/Biography';
 import FormAddBiography from './components/FormAddBiography';
 import '../../../scss/pages/home.scss';
-import Film from './components/Film';
+import Films from './components/Films';
 import Loader from './components/Loader';
-
 
 const HomeView = ({
   biographyList, filmList, handleDelete, handleSort, handleSortBubble, handleChangeYear, handleChangeText, handleReset,
@@ -48,7 +47,7 @@ const HomeView = ({
         <div className="listFilm">
           {
             filmList ? (
-              <Film
+              <Films
                 filmList={filmList}
                 handleActiveFilm={handleActiveFilm}
                 activeFilm={activeFilm}
