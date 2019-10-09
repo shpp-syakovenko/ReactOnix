@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import withActive from '../../../hoc/withActive';
 import Biography from './components/Biography';
 import FormAddBiography from './components/FormAddBiography';
 import '../../../scss/pages/home.scss';
@@ -114,4 +115,4 @@ HomeView.defaultProps = {
   handleKeyDown: undefined
 };
 
-export default HomeView;
+export default withActive(HomeView);

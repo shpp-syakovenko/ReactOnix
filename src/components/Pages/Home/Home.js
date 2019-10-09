@@ -107,21 +107,6 @@ class Home extends Component {
     });
   };
 
-  // Active element in the biographyList
-  activeYear = (e) => {
-    const arrTr = e.currentTarget.childNodes;
-    const currentTr = e.target.closest('tr');
-
-    if (currentTr === null || e.target.type === 'button') return;
-
-    for (let i = 0; i < arrTr.length; i += 1) {
-      if (arrTr[i] !== currentTr) {
-        arrTr[i].classList.remove('activeYears');
-      }
-    }
-    currentTr.classList.toggle('activeYears');
-  };
-
   // Add element in the biographyList
 
   handleSubmit = (event) => {
@@ -234,6 +219,7 @@ class Home extends Component {
       errorYear,
       activeFilm
     } = this.state;
+
     return (
       <HomeView
         biographyList={biographyList}
@@ -248,7 +234,6 @@ class Home extends Component {
         text={text}
         errorYear={errorYear}
         handleSubmit={this.handleSubmit}
-        activeYear={this.activeYear}
         onStartYear={this.onStartYear}
         onOverYear={this.onOverYear}
         onFinishYear={this.onFinishYear}
