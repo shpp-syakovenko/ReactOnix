@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import '../../../scss/layout/page.scss';
+import ThemeContext from '../../../context/ThemeContext';
 import PageView from './PageView';
 
 class Page extends Component {
@@ -10,7 +11,8 @@ class Page extends Component {
     this.state = {
       pageUpVisible: false,
       scrolled: window.pageYOffset,
-      coords: document.documentElement.clientHeight
+      coords: document.documentElement.clientHeight,
+      theme: 'Light'
     };
   }
 
@@ -21,6 +23,18 @@ class Page extends Component {
   componentWillUnmount() {
     window.removeEventListener('scroll', this.trackScroll);
   }
+
+  setThemeLight = () => {
+    this.setState({
+      theme: 'Light'
+    });
+  };
+
+  setThemeDark = () => {
+    this.setState({
+      theme: 'Dark'
+    });
+  };
 
   trackScroll = () => {
     const { scrolled, coords } = this.state;
@@ -39,13 +53,17 @@ class Page extends Component {
 
   render() {
     const { children } = this.props;
-    const { pageUpVisible } = this.state;
+    const { pageUpVisible, theme } = this.state;
     return (
-      <PageView
-        page={children}
-        handleClickPageUp={this.handleClickPageUp}
-        pageUpVisible={pageUpVisible}
-      />
+      <ThemeContext.Provider value={theme}>
+        <PageView
+          page={children}
+          handleClickPageUp={this.handleClickPageUp}
+          pageUpVisible={pageUpVisible}
+          setThemeLight={this.setThemeLight}
+          setThemeDark={this.setThemeDark}
+        />
+      </ThemeContext.Provider>
     );
   }
 }

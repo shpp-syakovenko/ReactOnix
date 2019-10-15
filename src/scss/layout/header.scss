@@ -43,9 +43,13 @@
 }
 
 // style for header
+.wrapperHeaderLight{
+  background-color: #eceeee;
+}
+.wrapperHeaderDark{
+  background-color: #8a9ba2;
+}
 .wrapperHeader {
-  background-color: #EFF0F2;
-
   .header {
     max-width: 1200px;
     margin: 0 auto;
@@ -114,9 +118,13 @@
 
     .titleHeader {
       transform: translateY(-50px);
-
-      h1 {
+      .titleHeaderThemeLight{
         color: #505050;
+      }
+      .titleHeaderThemeDark{
+        color: #212121;
+      }
+      h1 {
         font-family: Montserrat, sans-serif;
         font-weight: bold;
         font-size: 36px;
@@ -134,14 +142,20 @@
     .bottomHeader {
       position: relative;
       transform: translateY(-50px);
-
-      a {
+      .bottomHeaderThemeLight{
         border: 2px solid #646565;
+        color: #646565;
+      }
+      .bottomHeaderThemeDark {
+        border: 2px solid #212121;
+        color: #212121;
+      }
+      a {
         padding: 10px 25px;
         font-family: Montserrat, sans-serif;
         text-decoration: none;
         text-transform: uppercase;
-        color: #646565;
+
       }
 
       img {

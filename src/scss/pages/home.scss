@@ -1,15 +1,27 @@
-.home {
+.homeThemeLight {
   background-color: #F8FAFA;
+}
+
+.homeThemeDark {
+  background-color: #545F66;
+}
+
+.home {
   // Style for biographyList
   .biography {
     max-width: 1200px;
     margin: 0 auto;
     padding: 70px 15px;
-
     .titleBiography {
+      .titleBiographyLight{
+        color: #505050;
+      }
+      .titleBiographyDark{
+        color: #DDD;
+      }
       h2 {
         margin: 0;
-        color: #505050;
+
         font-family: Montserrat, sans-serif;
         font-size: 38px;
         text-align: center;
@@ -90,13 +102,19 @@
   .wrapperFormYear {
     .formYear {
       margin: 15px 0;
-
+      .formYearThemeLight{
+        border: 2px solid #545F66;
+        color: #505050;
+      }
+      .formYearThemeDark{
+        border: 2px solid #DDD;
+        color: #DDD;
+      }
       input {
         border: 2px solid #545F66;
         background-color: transparent;
         padding: 5px 15px;
         font-size: 16px;
-        color: #505050;
         width: 250px;
       }
     }
@@ -108,14 +126,20 @@
 
     .formText {
       margin: 15px 0;
+      .formTextThemeLight{
+        border: 2px solid #545F66;
+        color: #505050;
+      }
+      .formTextThemeDark{
+        border: 2px solid #DDD;
+        color: #DDD;
+      }
 
       textarea {
-        border: 2px solid #545F66;
         background-color: transparent;
         padding: 5px 15px;
         font-size: 16px;
         min-height: 150px;
-        color: #505050;
         width: 100%;
       }
     }
@@ -143,6 +167,12 @@
     padding: 30px 15px;
 
     .titleFilm {
+      .titleFilmLight{
+        color: #505050;
+      }
+      .titleFilmDark{
+        color: #DDD;
+      }
       h2 {
         margin: 0;
         color: #505050;
@@ -158,16 +188,20 @@
         margin: 0;
         padding: 0;
         list-style: none;
-
         li {
           cursor: pointer;
-
+          .filmItemThemeLight{
+            background-color: #545F66;
+            color: #DDD;
+          }
+          .filmItemThemeDark{
+            background-color: #262B2E;
+            color: #DDD;
+          }
           .filmItem {
             display: flex;
             justify-content: space-between;
             align-items: flex-start;
-            background-color: #545F66;
-            color: #DDD;
             padding: 15px;
             margin-top: 25px;
 

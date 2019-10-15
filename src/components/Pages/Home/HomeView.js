@@ -6,6 +6,7 @@ import FormAddBiography from './components/FormAddBiography';
 import '../../../scss/pages/home.scss';
 import Films from './components/Films';
 import Loader from './components/Loader';
+import ThemeContext from '../../../context/ThemeContext';
 
 const HomeView = ({
   biographyList, filmList, handleDelete, handleSort, handleSortBubble, handleChangeYear, handleChangeText, handleReset,
@@ -13,55 +14,60 @@ const HomeView = ({
   handleActiveFilm, activeFilm, onDragStartFilm, onDragFinishFilm, onDragOverFilm, handleKeyDown
 }) => {
   return (
-    <div className="home">
-      <div className="biography">
-        <div className="titleBiography">
-          <h2>My Biography</h2>
-        </div>
-        <div className="tableBiography">
-          <Biography
-            years={biographyList}
-            handleDelete={handleDelete}
-            handleSort={handleSort}
-            handleSortBubble={handleSortBubble}
-            activeYear={activeYear}
-            onStartYear={onStartYear}
-            onOverYear={onOverYear}
-            onFinishYear={onFinishYear}
-          />
-          <FormAddBiography
-            handleChangeYear={handleChangeYear}
-            handleChangeText={handleChangeText}
-            handleReset={handleReset}
-            year={year}
-            text={text}
-            errorYear={errorYear}
-            handleSubmit={handleSubmit}
-
-          />
-        </div>
-      </div>
-      <div className="film">
-        <div className="titleFilm">
-          <h2>popular movies</h2>
-        </div>
-        <div className="listFilm">
-          {
-            filmList ? (
-              <Films
-                filmList={filmList}
-                handleActiveFilm={handleActiveFilm}
-                activeFilm={activeFilm}
-                onDragStartFilm={onDragStartFilm}
-                onDragFinishFilm={onDragFinishFilm}
-                onDragOverFilm={onDragOverFilm}
-                handleKeyDown={handleKeyDown}
-              />
-            ) : <Loader />
-          }
-        </div>
-      </div>
-    </div>
+    <ThemeContext.Consumer>
+      {
+        (theme) => (
+          <div className={`home homeTheme${theme}`}>
+            <div className="biography">
+              <div className="titleBiography">
+                <h2 className={`titleBiography${theme}`}>My Biography</h2>
+              </div>
+              <div className="tableBiography">
+                <Biography
+                  years={biographyList}
+                  handleDelete={handleDelete}
+                  handleSort={handleSort}
+                  handleSortBubble={handleSortBubble}
+                  activeYear={activeYear}
+                  onStartYear={onStartYear}
+                  onOverYear={onOverYear}
+                  onFinishYear={onFinishYear}
+                />
+                <FormAddBiography
+                  handleChangeYear={handleChangeYear}
+                  handleChangeText={handleChangeText}
+                  handleReset={handleReset}
+                  year={year}
+                  text={text}
+                  errorYear={errorYear}
+                  handleSubmit={handleSubmit}
+                />
+              </div>
+            </div>
+            <div className="film">
+              <div className="titleFilm">
+                <h2 className={`titleFilm${theme}`}>popular movies</h2>
+              </div>
+              <div className="listFilm">
+                {
+                  filmList ? (
+                    <Films
+                      filmList={filmList}
+                      handleActiveFilm={handleActiveFilm}
+                      activeFilm={activeFilm}
+                      onDragStartFilm={onDragStartFilm}
+                      onDragFinishFilm={onDragFinishFilm}
+                      onDragOverFilm={onDragOverFilm}
+                      handleKeyDown={handleKeyDown}
+                    />
+                  ) : <Loader />
+                }
+              </div>
+            </div>
+          </div>
+        )
+      }
+    </ThemeContext.Consumer>
   );
 };
 

@@ -5,9 +5,21 @@ import Footer from '../Footer/Footer';
 import Button from '../../elements/Button/Button';
 
 
-const PageView = ({ page, handleClickPageUp, pageUpVisible }) => {
+const PageView = ({
+  page, handleClickPageUp, pageUpVisible, setThemeLight, setThemeDark
+}) => {
   return (
     <div className="page">
+      <div className="theme">
+        <div className="themeMenu">
+          <div className="themeButtonLight">
+            <Button title="Light" onButtonClick={setThemeLight} />
+          </div>
+          <div className="themeButtonDark">
+            <Button title="Dark" onButtonClick={setThemeDark} />
+          </div>
+        </div>
+      </div>
       <Header />
       {page}
       <Footer />
@@ -25,12 +37,16 @@ const PageView = ({ page, handleClickPageUp, pageUpVisible }) => {
 PageView.propTypes = {
   page: PropTypes.element.isRequired,
   handleClickPageUp: PropTypes.func,
-  pageUpVisible: PropTypes.bool
+  pageUpVisible: PropTypes.bool,
+  setThemeLight: PropTypes.func,
+  setThemeDark: PropTypes.func
 };
 
 PageView.defaultProps = {
   handleClickPageUp: undefined,
-  pageUpVisible: false
+  pageUpVisible: false,
+  setThemeLight: undefined,
+  setThemeDark: undefined
 };
 
 export default PageView;

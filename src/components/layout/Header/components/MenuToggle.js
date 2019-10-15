@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-
 const MenuToggle = ({ isOpen, handleMenu }) => {
   return (
     <div className="menu">
