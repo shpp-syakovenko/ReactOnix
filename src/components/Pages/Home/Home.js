@@ -1,76 +1,58 @@
-import React, { Component } from 'react';
+import React, { useState, useEffect } from 'react';
 import HomeView from './HomeView';
 import startBio from '../../../mock/startBio';
 
-class Home extends Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      biographyList: startBio,
-      text: '',
-      year: '',
-      errorYear: false,
-      startYear: null,
-      overYear: null,
-      filmList: null,
-      activeFilm: null,
-      filmStart: null,
-      filmOver: null
-    };
-  }
+const Home = () => {
+  const [biographyList, setBiographyList] = useState(startBio);
+  const [text, setText] = useState('');
+  const [year, setYear] = useState('');
+  const [errorYear, setErrorYear] = useState(false);
+  const [startYear, setStartYear] = useState(null);
+  const [overYear, setOverYear] = useState(null);
+  const [filmList, setFilmList] = useState(null);
+  const [activeFilm, setActiveFilm] = useState(null);
+  const [filmStart, setFilmStart] = useState(null);
+  const [filmOver, setFilmOver] = useState(null);
 
   // Get promise with api.themoviedb.org and set state data.
-  componentDidMount() {
+  useEffect(() => {
     fetch(`${process.env.REACT_APP_BASE_URL}popular?${process.env.REACT_APP_APY_KEY}&language=en-US&page=1`)
       .then((response) => response.json())
       .then((result) => {
-        this.setState({
-          filmList: result.results
-        });
+        setFilmList(result.results);
       });
-  }
+  }, []);
 
   // Save index for start film
-  onDragStartFilm = (index) => {
-    this.setState({
-      filmStart: index
-    });
+  const onDragStartFilm = (index) => {
+    setFilmStart(index);
   };
 
   // Save index for over film
-  onDragOverFilm = (index) => {
-    this.setState({
-      filmOver: index
-    });
+  const onDragOverFilm = (index) => {
+    setFilmOver(index);
   };
 
   // Replace start film on the finish film
-  onDragFinishFilm = () => {
-    const { filmStart, filmOver, filmList } = this.state;
+  const onDragFinishFilm = () => {
     if ((filmList === null) || (filmOver === null)) return;
 
     const startFilm = filmList[filmStart];
     filmList[filmStart] = filmList[filmOver];
     filmList[filmOver] = startFilm;
 
-    this.setState({
-      filmList,
-      filmOver: null,
-      filmStart: null
-    });
+    setFilmList(filmList);
+    setFilmOver(null);
+    setFilmStart(null);
   };
 
   // Make active film(ctrl + MouseLeft or alt + MouseLeft)
-  handleActiveFilm = (id, event) => {
+  const handleActiveFilm = (id, event) => {
     event.preventDefault();
-    const { activeFilm } = this.state;
-    this.setState({
-      activeFilm: (id === activeFilm) ? null : id
-    });
+    setActiveFilm((id === activeFilm) ? null : id);
   };
 
-  handleKeyDown = (event) => {
+  const handleKeyDown = (event) => {
     if (event.ctrlKey) {
       event.target.classList.toggle('ctrlClass');
     }
@@ -80,107 +62,77 @@ class Home extends Component {
   };
 
   // Save start Year item
-  onStartYear = (index) => {
-    this.setState({
-      startYear: index
-    });
+  const onStartYear = (index) => {
+    setStartYear(index);
   };
 
   // Save item over Years
-  onOverYear = (index) => {
-    this.setState({
-      overYear: index
-    });
+  const onOverYear = (index) => {
+    setOverYear(index);
   };
 
   // Replace start item on the finish item
-  onFinishYear = () => {
-    const { biographyList, startYear, overYear } = this.state;
+  const onFinishYear = () => {
     const temp = biographyList[startYear];
     biographyList[startYear] = biographyList[overYear];
     biographyList[overYear] = temp;
 
-    this.setState({
-      biographyList,
-      startYear: null,
-      overYear: null
-    });
+    setBiographyList(biographyList);
+    setStartYear(null);
+    setOverYear(null);
   };
 
   // Add element in the biographyList
-
-  handleSubmit = (event) => {
+  const handleSubmit = (event) => {
     event.preventDefault();
-    const { text, year, biographyList } = this.state;
 
     if (!year.length || !text.length || !(/\d+/.test(year))) {
-      this.setState({
-        errorYear: true
-      });
+      setErrorYear(true);
       return;
     }
-    this.setState({
-      errorYear: false
-    });
-    
+    setErrorYear(false);
+
     const newItem = {
       years: +year,
       info: text,
     };
 
-    this.setState({
-      text: '',
-      year: '',
-      biographyList: {
-        ...biographyList,
-        [Object.keys(biographyList).length]: newItem
-      }
+    setText('');
+    setYear('');
+    setBiographyList({
+      ...biographyList,
+      [Object.keys(biographyList).length]: newItem
     });
   };
 
   // Change <input/> writes in state
-  handleChangeYear = (event) => {
+  const handleChangeYear = (event) => {
     event.preventDefault();
-
-    this.setState({
-      year: event.target.value
-    });
+    setYear(event.target.value);
   };
 
   // Change <textarea/> writes in state
-  handleChangeText = (event) => {
+  const handleChangeText = (event) => {
     event.preventDefault();
-
-    this.setState({
-      text: event.target.value
-    });
+    setText(event.target.value);
   };
 
   // Reset form
-  handleReset = () => {
-    this.setState({
-      text: '',
-      year: ''
-    });
+  const handleReset = () => {
+    setText('');
+    setYear('');
   };
 
   // Sort biography LIst
-
-  handleSort = () => {
-    const { biographyList } = this.state;
+  const handleSort = () => {
     const arrList = Object.values(biographyList);
-
     const sortArrList = arrList.sort((a, b) => a.years - b.years);
 
-    this.setState({
-      biographyList: { ...sortArrList }
-    });
+    setBiographyList({ ...sortArrList });
   };
 
   // Sort Bubble biography List
-
-  handleSortBubble = () => {
-    const { biographyList } = this.state;
+  const handleSortBubble = () => {
     const arrList = Object.values(biographyList);
     const n = arrList.length;
 
@@ -194,58 +146,41 @@ class Home extends Component {
       }
     }
 
-    this.setState({
-      biographyList: { ...arrList }
-    });
+    setBiographyList({ ...arrList });
   };
 
   // Delete element from biography
 
-  handleDelete = (id) => {
-    const { biographyList } = this.state;
+  const handleDelete = (id) => {
     delete biographyList[id];
 
-    this.setState({
-      biographyList: { ...Object.values(biographyList) }
-    });
+    setBiographyList({ ...Object.values(biographyList) });
   };
-
-  render() {
-    const {
-      biographyList,
-      filmList,
-      year,
-      text,
-      errorYear,
-      activeFilm
-    } = this.state;
-
-    return (
-      <HomeView
-        biographyList={biographyList}
-        filmList={filmList}
-        handleDelete={this.handleDelete}
-        handleSort={this.handleSort}
-        handleSortBubble={this.handleSortBubble}
-        handleChangeYear={this.handleChangeYear}
-        handleChangeText={this.handleChangeText}
-        handleReset={this.handleReset}
-        year={year}
-        text={text}
-        errorYear={errorYear}
-        handleSubmit={this.handleSubmit}
-        onStartYear={this.onStartYear}
-        onOverYear={this.onOverYear}
-        onFinishYear={this.onFinishYear}
-        handleActiveFilm={this.handleActiveFilm}
-        activeFilm={activeFilm}
-        onDragStartFilm={this.onDragStartFilm}
-        onDragFinishFilm={this.onDragFinishFilm}
-        onDragOverFilm={this.onDragOverFilm}
-        handleKeyDown={this.handleKeyDown}
-      />
-    );
-  }
-}
+  return (
+    <HomeView
+      biographyList={biographyList}
+      filmList={filmList}
+      handleDelete={handleDelete}
+      handleSort={handleSort}
+      handleSortBubble={handleSortBubble}
+      handleChangeYear={handleChangeYear}
+      handleChangeText={handleChangeText}
+      handleReset={handleReset}
+      year={year}
+      text={text}
+      errorYear={errorYear}
+      handleSubmit={handleSubmit}
+      onStartYear={onStartYear}
+      onOverYear={onOverYear}
+      onFinishYear={onFinishYear}
+      handleActiveFilm={handleActiveFilm}
+      activeFilm={activeFilm}
+      onDragStartFilm={onDragStartFilm}
+      onDragFinishFilm={onDragFinishFilm}
+      onDragOverFilm={onDragOverFilm}
+      handleKeyDown={handleKeyDown}
+    />
+  );
+};
 
 export default Home;

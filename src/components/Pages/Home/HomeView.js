@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
 import withActive from '../../../hoc/withActive';
 import Biography from './components/Biography';
@@ -13,61 +13,56 @@ const HomeView = ({
   year, text, errorYear, handleSubmit, activeYear, onStartYear, onOverYear, onFinishYear,
   handleActiveFilm, activeFilm, onDragStartFilm, onDragFinishFilm, onDragOverFilm, handleKeyDown
 }) => {
+  const theme = useContext(ThemeContext);
   return (
-    <ThemeContext.Consumer>
-      {
-        (theme) => (
-          <div className={`home homeTheme${theme}`}>
-            <div className="biography">
-              <div className="titleBiography">
-                <h2 className={`titleBiography${theme}`}>My Biography</h2>
-              </div>
-              <div className="tableBiography">
-                <Biography
-                  years={biographyList}
-                  handleDelete={handleDelete}
-                  handleSort={handleSort}
-                  handleSortBubble={handleSortBubble}
-                  activeYear={activeYear}
-                  onStartYear={onStartYear}
-                  onOverYear={onOverYear}
-                  onFinishYear={onFinishYear}
-                />
-                <FormAddBiography
-                  handleChangeYear={handleChangeYear}
-                  handleChangeText={handleChangeText}
-                  handleReset={handleReset}
-                  year={year}
-                  text={text}
-                  errorYear={errorYear}
-                  handleSubmit={handleSubmit}
-                />
-              </div>
-            </div>
-            <div className="film">
-              <div className="titleFilm">
-                <h2 className={`titleFilm${theme}`}>popular movies</h2>
-              </div>
-              <div className="listFilm">
-                {
-                  filmList ? (
-                    <Films
-                      filmList={filmList}
-                      handleActiveFilm={handleActiveFilm}
-                      activeFilm={activeFilm}
-                      onDragStartFilm={onDragStartFilm}
-                      onDragFinishFilm={onDragFinishFilm}
-                      onDragOverFilm={onDragOverFilm}
-                      handleKeyDown={handleKeyDown}
-                    />
-                  ) : <Loader />
-                }
-              </div>
-            </div>
-          </div>
-        )
-      }
-    </ThemeContext.Consumer>
+    <div className={`home homeTheme${theme}`}>
+      <div className="biography">
+        <div className="titleBiography">
+          <h2 className={`titleBiography${theme}`}>My Biography</h2>
+        </div>
+        <div className="tableBiography">
+          <Biography
+            years={biographyList}
+            handleDelete={handleDelete}
+            handleSort={handleSort}
+            handleSortBubble={handleSortBubble}
+            activeYear={activeYear}
+            onStartYear={onStartYear}
+            onOverYear={onOverYear}
+            onFinishYear={onFinishYear}
+          />
+          <FormAddBiography
+            handleChangeYear={handleChangeYear}
+            handleChangeText={handleChangeText}
+            handleReset={handleReset}
+            year={year}
+            text={text}
+            errorYear={errorYear}
+            handleSubmit={handleSubmit}
+          />
+        </div>
+      </div>
+      <div className="film">
+        <div className="titleFilm">
+          <h2 className={`titleFilm${theme}`}>popular movies</h2>
+        </div>
+        <div className="listFilm">
+          {
+            filmList ? (
+              <Films
+                filmList={filmList}
+                handleActiveFilm={handleActiveFilm}
+                activeFilm={activeFilm}
+                onDragStartFilm={onDragStartFilm}
+                onDragFinishFilm={onDragFinishFilm}
+                onDragOverFilm={onDragOverFilm}
+                handleKeyDown={handleKeyDown}
+              />
+            ) : <Loader />
+          }
+        </div>
+      </div>
+    </div>
   );
 };
 

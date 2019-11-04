@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
 
 import MenuToggle from './components/MenuToggle';
@@ -9,40 +9,35 @@ import '../../../scss/layout/header.scss';
 import water from '../../../assets/images/water.png';
 
 const HeaderView = ({ isOpen, handleMenu }) => {
+  const theme = useContext(ThemeContext);
   return (
-    <ThemeContext.Consumer>
-      {
-        (theme) => (
-          <div className={`wrapperHeader wrapperHeader${theme}`}>
-            <div className="header">
-              <div className="topHeader">
-                <div className="logo">
-                  Sh
-                  <span>o</span>
-                  pno
-                </div>
-                <MenuToggle isOpen={isOpen} handleMenu={handleMenu} />
-                <MenuItem isOpen={isOpen} />
-
-              </div>
-              <div className="titleHeader">
-                <h1 className={`titleHeaderTheme${theme}`}>
-                  Say Hello to
-                  <span>SHOPNO!</span>
-                  <br />
-                  <span>Agency</span>
-                  CORPORATE SHOPNO Theme
-                </h1>
-              </div>
-              <div className="bottomHeader">
-                <a className={`bottomHeaderTheme${theme}`} href="/">contact us</a>
-                <img src={water} alt="water" />
-              </div>
-            </div>
+    <div className={`wrapperHeader wrapperHeader${theme}`}>
+      <div className="header">
+        <div className="topHeader">
+          <div className="logo">
+            Sh
+            <span>o</span>
+            pno
           </div>
-        )
-      }
-    </ThemeContext.Consumer>
+          <MenuToggle isOpen={isOpen} handleMenu={handleMenu} />
+          <MenuItem isOpen={isOpen} />
+
+        </div>
+        <div className="titleHeader">
+          <h1 className={`titleHeaderTheme${theme}`}>
+            Say Hello to
+            <span>SHOPNO!</span>
+            <br />
+            <span>Agency</span>
+            CORPORATE SHOPNO Theme
+          </h1>
+        </div>
+        <div className="bottomHeader">
+          <a className={`bottomHeaderTheme${theme}`} href="/">contact us</a>
+          <img src={water} alt="water" />
+        </div>
+      </div>
+    </div>
   );
 };
 

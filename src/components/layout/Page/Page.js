@@ -1,72 +1,56 @@
-import React, { Component } from 'react';
+import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import '../../../scss/layout/page.scss';
 import ThemeContext from '../../../context/ThemeContext';
 import PageView from './PageView';
 
-class Page extends Component {
-  constructor(props) {
-    super(props);
+const Page = ({ children }) => {
+  const [pageUpVisible, setPageUpVisible] = useState(false);
+  const [scrolled, setScrolled] = useState(window.pageYOffset);
+  const [coords] = useState(document.documentElement.clientHeight);
+  const [theme, setTheme] = useState('Light');
 
-    this.state = {
-      pageUpVisible: false,
-      scrolled: window.pageYOffset,
-      coords: document.documentElement.clientHeight,
-      theme: 'Light'
-    };
-  }
-
-  componentDidMount() {
-    window.addEventListener('scroll', this.trackScroll);
-  }
-
-  componentWillUnmount() {
-    window.removeEventListener('scroll', this.trackScroll);
-  }
-
-  setThemeLight = () => {
-    this.setState({
-      theme: 'Light'
-    });
+  // use Light theme
+  const setThemeLight = () => {
+    setTheme('Light');
   };
 
-  setThemeDark = () => {
-    this.setState({
-      theme: 'Dark'
-    });
+  // use Dark theme
+  const setThemeDark = () => {
+    setTheme('Dark');
   };
 
-  trackScroll = () => {
-    const { scrolled, coords } = this.state;
-    this.setState({
-      pageUpVisible: scrolled > coords,
-      scrolled: window.pageYOffset
-    });
+  const trackScroll = () => {
+    setPageUpVisible(scrolled > coords);
+    setScrolled(window.pageYOffset);
   };
 
-  handleClickPageUp = () => {
+  const handleClickPageUp = () => {
     if (window.pageYOffset > 0) {
       window.scrollBy(0, -80);
-      setTimeout(this.handleClickPageUp, 0);
+      setTimeout(handleClickPageUp, 0);
     }
   };
 
-  render() {
-    const { children } = this.props;
-    const { pageUpVisible, theme } = this.state;
-    return (
-      <ThemeContext.Provider value={theme}>
-        <PageView
-          page={children}
-          handleClickPageUp={this.handleClickPageUp}
-          pageUpVisible={pageUpVisible}
-          setThemeLight={this.setThemeLight}
-          setThemeDark={this.setThemeDark}
-        />
-      </ThemeContext.Provider>
-    );
-  }
-}
+  useEffect(() => {
+    window.addEventListener('scroll', trackScroll);
+    return () => {
+      window.removeEventListener('scroll', trackScroll);
+    };
+  });
+
+  return (
+    <ThemeContext.Provider value={theme}>
+      <PageView
+        page={children}
+        handleClickPageUp={handleClickPageUp}
+        pageUpVisible={pageUpVisible}
+        setThemeLight={setThemeLight}
+        setThemeDark={setThemeDark}
+      />
+    </ThemeContext.Provider>
+  );
+};
 
 Page.propTypes = {
   children: PropTypes.element.isRequired,

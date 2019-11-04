@@ -1,29 +1,16 @@
-import React, { Component } from 'react';
+import React, { useState } from 'react';
 import HeaderView from './HeaderView';
 
-class Header extends Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      isOpen: false
-    };
-  }
+const Header = () => {
+  const [isOpen, setIsOpen] = useState(false);
 
   // Close or open menu
-  handleMenu = (e) => {
+  const handleMenu = (e) => {
     e.preventDefault();
-    const { isOpen } = this.state;
-    this.setState({
-      isOpen: !isOpen
-    });
+    setIsOpen(!isOpen);
   };
-
-  render() {
-    const { isOpen } = this.state;
-    return (
-      <HeaderView isOpen={isOpen} handleMenu={this.handleMenu} />
-    );
-  }
-}
+  return (
+    <HeaderView isOpen={isOpen} handleMenu={handleMenu} />
+  );
+};
 export default Header;

@@ -1,41 +1,28 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { withRouter } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import FilmView from './FilmView';
 import Loader from '../Home/components/Loader';
 
-class Film extends React.Component {
-  constructor(props) {
-    super(props);
+const Film = ({ match }) => {
+  const [filmData, setFilmData] = useState(null);
 
-    this.state = {
-      filmData: null
-    };
-  }
-
-  componentDidMount() {
-    const { match } = this.props;
-
+  useEffect(() => {
     fetch(`${process.env.REACT_APP_BASE_URL}${match.params.filmId}?${process.env.REACT_APP_APY_KEY}&language=en-US`)
       .then((response) => response.json())
       .then((response) => {
-        this.setState({
-          filmData: response
-        });
+        setFilmData(response);
       });
-  }
+  }, [match.params.filmId]);
 
-  render() {
-    const { filmData } = this.state;
-    return (
-      <div>
-        {
-          filmData ? <FilmView filmData={filmData} /> : <Loader />
-        }
-      </div>
-    );
-  }
-}
+  return (
+    <div>
+      {
+        filmData ? <FilmView filmData={filmData} /> : <Loader />
+      }
+    </div>
+  );
+};
 
 Film.propTypes = {
   match: PropTypes.shape({

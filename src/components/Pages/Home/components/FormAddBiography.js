@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
 import Button from '../../../elements/Button/Button';
 import ThemeContext from '../../../../context/ThemeContext';
@@ -7,41 +7,37 @@ import ThemeContext from '../../../../context/ThemeContext';
 const FormAddBiography = ({
   handleSubmit, handleChangeYear, year, errorYear, handleChangeText, text, handleReset
 }) => {
+  const theme = useContext(ThemeContext);
   return (
-    <ThemeContext.Consumer>
-      {
-        (theme) => (
-          <div className="wrapperFormYear">
-            <form onSubmit={handleSubmit}>
-              <div>
-                <span> Добавить событие:</span>
-              </div>
-              <div className="formYear">
-                <input
-                  className={`formYearTheme${theme}`}
-                  id="new-todo"
-                  onChange={handleChangeYear}
-                  value={year}
-                  placeholder="year..."
-                />
-                <span className="errorYear">{errorYear ? 'Заполните поля пожалуйста коректно' : ''}</span>
-              </div>
-              <div className="formText">
-                <textarea
-                  className={`formTextTheme${theme}`}
-                  onChange={handleChangeText}
-                  value={text}
-                  placeholder="text..."
-                />
-              </div>
-              <Button title="Reset" onButtonClick={handleReset} />
-              <Button title="Add new date" onButtonClick={handleSubmit} />
 
-            </form>
-          </div>
-        )
-      }
-    </ThemeContext.Consumer>
+    <div className="wrapperFormYear">
+      <form onSubmit={handleSubmit}>
+        <div>
+          <span> Добавить событие:</span>
+        </div>
+        <div className="formYear">
+          <input
+            className={`formYearTheme${theme}`}
+            id="new-todo"
+            onChange={handleChangeYear}
+            value={year}
+            placeholder="year..."
+          />
+          <span className="errorYear">{errorYear ? 'Заполните поля пожалуйста коректно' : ''}</span>
+        </div>
+        <div className="formText">
+          <textarea
+            className={`formTextTheme${theme}`}
+            onChange={handleChangeText}
+            value={text}
+            placeholder="text..."
+          />
+        </div>
+        <Button title="Reset" onButtonClick={handleReset} />
+        <Button title="Add new date" onButtonClick={handleSubmit} />
+
+      </form>
+    </div>
   );
 };
 

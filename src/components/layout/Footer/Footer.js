@@ -1,12 +1,10 @@
-import React, { Component } from 'react';
+import React from 'react';
 import FooterView from './FooterView';
 
-class Footer extends Component {
-  render() {
-    return (
-      <FooterView />
-    );
-  }
-}
+const Footer = () => {
+  return (
+    <FooterView />
+  );
+};
 
 export default Footer;
